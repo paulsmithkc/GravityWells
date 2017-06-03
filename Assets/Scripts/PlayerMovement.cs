@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public new Rigidbody rigidbody = null;
-    public GravitySource planetGravity = null;
+    public PlanetGravitySource planetGravity = null;
     public float cameraYawSensitivity = 60;
     public float forwardSpeed = 0.0f;
     public float horizonalSpeed = 0.0f;

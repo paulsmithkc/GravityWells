@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GravitySource : MonoBehaviour
 {
-
     public float gravityScale;
+    public bool affectRotation = false;
 
     private void OnTriggerStay(Collider other)
     {
@@ -14,8 +14,9 @@ public class GravitySource : MonoBehaviour
         if (rb)
         {
             // Apply gravity!
-            Vector3 dist = transform.position - other.transform.position;
-            Vector3 force = dist.normalized * gravityScale;
+            Vector3 dir = (other.transform.position - this.transform.position).normalized;
+            Vector3 force = dir * -gravityScale;
+            rb.rotation = Quaternion.FromToRotation(other.transform.up, dir) * rb.rotation;
             rb.AddForce(force, ForceMode.Acceleration);
         }
     }

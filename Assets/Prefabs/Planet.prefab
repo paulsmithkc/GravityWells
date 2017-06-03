@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78e82ad21a55704a9ca9b3bf28ae39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
+  rotationSpeed: 0
   axis: {x: 0, y: 1, z: 0}
-  rigidbody: {fileID: 0}
+  rigidbody: {fileID: 54774926725830486}
 --- !u!114 &114653568591493902
 MonoBehaviour:
   m_ObjectHideFlags: 1

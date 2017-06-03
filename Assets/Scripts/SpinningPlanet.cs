@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpinningPlanet : MonoBehaviour {
 
+    public new Rigidbody rigidbody = null;
     public float rotationSpeed = 0;
     public Vector3 axis = Vector3.up;
-    public Rigidbody rigidbody = null;
-
+    
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -23,9 +23,7 @@ public class SpinningPlanet : MonoBehaviour {
             transform.Rotate(a, rotationSpeed * Time.deltaTime);
         } else {
             rigidbody.MoveRotation(
-                rigidbody.rotation * Quaternion.AngleAxis(
-                    rotationSpeed * Time.deltaTime, a
-                )
+                Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, a) * rigidbody.rotation
             );
         }
 	}

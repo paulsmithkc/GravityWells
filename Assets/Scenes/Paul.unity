@@ -5,11 +5,12 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 10
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: d6acccc2a88525247b3d21db78c3c60e
+  m_OcclusionCullingData: {fileID: 36300000, guid: e93b285e46506b54a86d545f6e6a3490,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -205,11 +206,6 @@ Prefab:
     - target: {fileID: 4078136101892834, guid: c2c0c4c6eb1f84841a044c403de0f64c, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114351547835780932, guid: c2c0c4c6eb1f84841a044c403de0f64c,
-        type: 2}
-      propertyPath: debrisToSpawn
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2c0c4c6eb1f84841a044c403de0f64c, type: 2}

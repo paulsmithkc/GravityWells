@@ -5,7 +5,7 @@
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
         _PhongTess ("Phong Tessellation", Range(0,1)) = 0.5
-        _EdgeTess ("Edge Length Tessellation", Range(2,50)) = 5
+        _EdgeTess ("Edge Length Tessellation", Range(2,100)) = 5
 
         [Space(10)][Header(Rim lighting)]
         _RimPower ("Rim Power", Range(0,9)) = 3

@@ -29,7 +29,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!1 &1536098728240838
 GameObject:
@@ -46,7 +46,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &4647017082736424
 Transform:
@@ -155,6 +155,7 @@ MonoBehaviour:
   rigidbody: {fileID: 54048381544363848}
   initialSpeed: 25
   timer: 20
+  explodeOnImpact: 1
   explosionRadius: 10
   explosionForce: 100
 --- !u!198 &198175398413540878

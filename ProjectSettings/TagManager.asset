@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Planet
+  - GravityRocket
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Planet
-  - 
+  - GravityRocket
   - 
   - 
   - 

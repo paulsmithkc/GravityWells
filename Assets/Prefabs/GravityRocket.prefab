@@ -21,12 +21,12 @@ GameObject:
   - component: {fileID: 4332121448369366}
   - component: {fileID: 135662608971014290}
   - component: {fileID: 114762733519010702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GravitySource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!1 &1749532853419286
 GameObject:
@@ -41,12 +41,12 @@ GameObject:
   - component: {fileID: 23321846165055932}
   - component: {fileID: 54415863655633412}
   - component: {fileID: 114152177895077288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GravityRocket
-  m_TagString: Untagged
+  m_TagString: GravityRocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!1 &1995378795450800
 GameObject:
@@ -58,12 +58,12 @@ GameObject:
   - component: {fileID: 4415669708269384}
   - component: {fileID: 198911933707554914}
   - component: {fileID: 199260368047490288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &4332121448369366
 Transform:

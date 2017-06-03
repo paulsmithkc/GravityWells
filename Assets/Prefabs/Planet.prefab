@@ -31,7 +31,7 @@ GameObject:
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1504359997657916
 GameObject:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefab: {fileID: 114301395679053874, guid: 1e50e475555bfa843b67a16754bdcc5c,
     type: 2}
-  meteorsPerSecond: 1
+  meteorsPerSecond: 5
   meteorSpawnRadius: 150
 --- !u!114 &114351547835780932
 MonoBehaviour:
@@ -160,7 +160,7 @@ MonoBehaviour:
   debrisPrefab: {fileID: 1786207779365442, guid: 29e2a83a443600e419634254aba4cba6,
     type: 2}
   debrisSpawnRadius: 52
-  debrisToSpawn: 100
+  debrisToSpawn: 1000
 --- !u!114 &114566320374943122
 MonoBehaviour:
   m_ObjectHideFlags: 1

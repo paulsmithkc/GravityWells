@@ -16,15 +16,20 @@ public class SpinningPlanet : MonoBehaviour {
         ));
     }
 	
-	// Update is called once per frame
-	void Update () {
-        var a = axis.normalized;
-        if (rigidbody == null) {
-            transform.Rotate(a, rotationSpeed * Time.deltaTime);
-        } else {
-            rigidbody.MoveRotation(
-                Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, a) * rigidbody.rotation
-            );
+	void FixedUpdate() {
+        if (rotationSpeed != 0.0f)
+        {
+            float deltaTime = Time.fixedDeltaTime;
+            var a = axis.normalized;
+            if (rigidbody == null)
+            {
+                transform.Rotate(a, rotationSpeed * deltaTime);
+            }
+            else {
+                rigidbody.MoveRotation(
+                    Quaternion.AngleAxis(rotationSpeed * deltaTime, a) * rigidbody.rotation
+                );
+            }
         }
 	}
 

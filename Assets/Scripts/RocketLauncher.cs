@@ -6,11 +6,7 @@ public class RocketLauncher : MonoBehaviour {
     
     public Rocket rocketPrefab;
     public string fireButton = "Fire1";
-
-    // Use this for initialization
-    void Start () {
-    }
-	
+    
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown(fireButton)) {

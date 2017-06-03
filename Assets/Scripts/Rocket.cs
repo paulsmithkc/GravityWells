@@ -18,19 +18,14 @@ public class Rocket : MonoBehaviour {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = transform.forward * initialSpeed;
         exploded = false;
+        StartCoroutine("WaitForTimer");
     }
 	
-	// Update is called once per frame
-	void Update()
+    public IEnumerator WaitForTimer()
     {
-        if (exploded) { return; }
-        
-        float deltaTime = Time.deltaTime;
-        timer -= deltaTime;
-        if (timer <= 0)
-        {
-            Explode();
-        }
+        yield return new WaitForSeconds(timer);
+        Explode();
+        yield return null;
     }
 
     void FixedUpdate()
@@ -72,7 +67,8 @@ public class Rocket : MonoBehaviour {
         //        rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 0, ForceMode.Force);
         //    }
         //}
-        
+
+        StopAllCoroutines();
         GameObject.Destroy(this.gameObject);
         exploded = true;
     }

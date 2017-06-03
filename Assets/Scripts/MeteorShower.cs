@@ -12,7 +12,7 @@ public class MeteorShower : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        meteorsToSpawn = meteorsPerSecond * meteorPrefab.initialTimer * 0.5f;
+        meteorsToSpawn = meteorsPerSecond;
     }
 	
 	// Update is called once per frame

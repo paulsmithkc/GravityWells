@@ -9,31 +9,28 @@ public class Meteor : MonoBehaviour {
     public float initialSpeed = 10;
     public float initialTimer = 10;
     public float timer = 10;
+    public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
     private bool exploded = false;
 
-    public void Reset(MeteorShower meteorShower)
+    public void Reset(MeteorShower s)
     {
-        this.meteorShower = meteorShower;
+        meteorShower = s;
         rigidbody.velocity = transform.forward * initialSpeed;
         timer = initialTimer;
         exploded = false;
-        this.transform.parent = meteorShower.transform;
-        this.gameObject.SetActive(true);
+
+        transform.parent = meteorShower.transform;
+        StartCoroutine("WaitForTimer");
+        gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator WaitForTimer()
     {
-        if (exploded) { return; }
-
-        float deltaTime = Time.deltaTime;
-        timer -= deltaTime;
-        if (timer <= 0)
-        {
-            Explode();
-        }
+        yield return new WaitForSeconds(timer);
+        Explode();
+        yield return null;
     }
 
     void OnDrawGizmos()
@@ -45,18 +42,23 @@ public class Meteor : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        timer = Mathf.Min(timer, 5.0f);
+        if (explodeOnImpact)
+        {
+            timer = Mathf.Min(timer, 1.0f);
+        }
     }
 
     public void Explode()
     {
         if (exploded) { return; }
 
-        if (meteorShower != null) {
-            meteorShower.DestroyMeteor(this);
-        } else {
-            GameObject.Destroy(this.gameObject);
-        }
+        StopAllCoroutines();
+        GameObject.Destroy(this.gameObject);
+        //if (meteorShower != null) {
+        //    meteorShower.DestroyMeteor(this);
+        //} else {
+        //    GameObject.Destroy(this.gameObject);
+        //}
         exploded = true;
     }
 }

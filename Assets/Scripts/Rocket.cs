@@ -23,13 +23,18 @@ public class Rocket : MonoBehaviour {
 	void Update()
     {
         if (exploded) { return; }
-
+        
         float deltaTime = Time.deltaTime;
         timer -= deltaTime;
         if (timer <= 0)
         {
             Explode();
         }
+    }
+
+    void FixedUpdate()
+    {
+        rigidbody.MoveRotation(Quaternion.FromToRotation(transform.forward, rigidbody.velocity.normalized) * rigidbody.rotation);
     }
 
     void OnDrawGizmos()

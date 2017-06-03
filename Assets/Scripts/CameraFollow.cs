@@ -14,20 +14,6 @@ public class CameraFollow : MonoBehaviour {
         transform.position = cameraTarget.position;
     }
 	
-	// Update is called once per frame
-	//void Update () {
- //       float deltaTime = Time.deltaTime;
- //       Vector3 pos = transform.position;
- //       pos = Vector3.SmoothDamp(pos, cameraTarget.position, ref currentVelocity, 0.3f, maxAccel, deltaTime);
- //       transform.position = pos;
-
- //       transform.rotation = Quaternion.RotateTowards(
- //           transform.rotation,
- //           cameraTarget.rotation,
- //           25.0f * deltaTime
- //       );
- //   }
-
     void FixedUpdate()
     {
         float deltaTime = Time.fixedDeltaTime;

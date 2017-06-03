@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public new Rigidbody rigidbody = null;
+    public GravitySource planetGravity = null;
     public float cameraYawSensitivity = 60;
     public float forwardSpeed = 0.0f;
     public float horizonalSpeed = 0.0f;
@@ -33,21 +34,26 @@ public class PlayerMovement : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float cameraYaw = Input.GetAxis("Camera Yaw");
-        float cameraPitch = Input.GetAxis("Camera Pitch");
-
+        
         float targetTurnVelocity = cameraYaw * cameraYawSensitivity;
         currentTurnVelocity = Mathf.SmoothDamp(currentTurnVelocity, targetTurnVelocity, ref currentTurnAccel, 0.15f, maxAccel, deltaTime);
 
         Vector3 targetVelocity = new Vector3(h * horizonalSpeed, 0, v * (v >= 0 ? forwardSpeed : backwardSpeed));
         currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, targetVelocity, ref currentMoveAccel, 0.15f, maxAccel, deltaTime);
-        
-        rigidbody.AddForce(transform.up * cameraPitch * jetpackSpeed, ForceMode.Acceleration);
     }
 
     void FixedUpdate() {
         float deltaTime = Time.fixedDeltaTime;
+        if (planetGravity != null)
+        {
+            Vector3 planetUp = (this.transform.position - planetGravity.transform.position).normalized;
+            rigidbody.rotation = Quaternion.FromToRotation(transform.up, planetUp) * rigidbody.rotation;
+        }
         rigidbody.MoveRotation(Quaternion.AngleAxis(currentTurnVelocity * deltaTime, transform.up) * rigidbody.rotation);
         rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(currentMoveVelocity) * deltaTime);
+
+        float cameraPitch = Input.GetAxis("Camera Pitch");
+        rigidbody.AddForce(transform.up * cameraPitch * jetpackSpeed, ForceMode.Acceleration);
     }
     
     void OnDrawGizmos()

@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114809553001955064}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980821475454854}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0.1
   m_AngularDrag: 0.1
   m_UseGravity: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 54169648145513624}
+  planetGravity: {fileID: 0}
   cameraYawSensitivity: 60
   forwardSpeed: 10
   horizonalSpeed: 5

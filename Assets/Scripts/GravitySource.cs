@@ -5,7 +5,6 @@ using UnityEngine;
 public class GravitySource : MonoBehaviour
 {
     public float gravityScale;
-    public bool affectRotation = false;
 
     private void OnTriggerStay(Collider other)
     {
@@ -16,8 +15,18 @@ public class GravitySource : MonoBehaviour
             // Apply gravity!
             Vector3 dir = (other.transform.position - this.transform.position).normalized;
             Vector3 force = dir * -gravityScale;
-            rb.rotation = Quaternion.FromToRotation(other.transform.up, dir) * rb.rotation;
+            //rb.rotation = Quaternion.FromToRotation(other.transform.up, dir) * rb.rotation;
             rb.AddForce(force, ForceMode.Acceleration);
+        }
+
+        if (string.Equals(this.gameObject.tag, "Planet") &&
+            string.Equals(other.gameObject.tag, "Player"))
+        {
+            var player = other.GetComponent<PlayerMovement>();
+            if (player != null)
+            {
+                player.planetGravity = this;
+            }
         }
     }
 

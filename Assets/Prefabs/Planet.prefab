@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefab: {fileID: 114301395679053874, guid: 1e50e475555bfa843b67a16754bdcc5c,
     type: 2}
-  meteorsPerSecond: 5
+  meteorsPerSecond: 20
   meteorSpawnRadius: 150
 --- !u!114 &114351547835780932
 MonoBehaviour:

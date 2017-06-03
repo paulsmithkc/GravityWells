@@ -10,7 +10,7 @@ public class RocketLauncher : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown(fireButton)) {
-            var r = GameObject.Instantiate(
+            GameObject.Instantiate(
                 rocketPrefab,
                 transform.position + transform.forward * rocketPrefab.initialSpeed * 0.15f,
                 transform.rotation

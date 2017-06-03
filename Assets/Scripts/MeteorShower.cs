@@ -8,7 +8,7 @@ public class MeteorShower : MonoBehaviour {
     public float meteorsPerSecond = 5;
     public float meteorSpawnRadius = 150;
     private float meteorsToSpawn = 0;
-    private Stack<Meteor> inactiveMeteors = new Stack<Meteor>();
+    //private Stack<Meteor> inactiveMeteors = new Stack<Meteor>();
 
     // Use this for initialization
     void Start () {
@@ -32,27 +32,28 @@ public class MeteorShower : MonoBehaviour {
         Vector3 meteorForward = (transform.position - pos).normalized;
         Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, meteorForward);
 
-        Meteor meteor;
-        if (inactiveMeteors.Count > 0)
-        {
-            meteor = inactiveMeteors.Pop();
-            meteor.transform.position = pos;
-            meteor.transform.rotation = rotation;
-        }
-        else
-        {
-            meteor = GameObject.Instantiate(meteorPrefab, pos, rotation);
-        }
+        Meteor meteor = GameObject.Instantiate(meteorPrefab, pos, rotation);
+        //if (inactiveMeteors.Count > 0)
+        //{
+        //    meteor = inactiveMeteors.Pop();
+        //    meteor.transform.position = pos;
+        //    meteor.transform.rotation = rotation;
+        //}
+        //else
+        //{
+        //    meteor = GameObject.Instantiate(meteorPrefab, pos, rotation);
+        //}
 
-        meteor.Reset(this);
+        meteor.meteorShower = this;
+        meteor.transform.parent = this.transform;
         return meteor;
     }
 
-    public void DestroyMeteor(Meteor meteor)
-    {
-        meteor.gameObject.SetActive(false);
-        inactiveMeteors.Push(meteor);
-    }
+    //public void DestroyMeteor(Meteor meteor)
+    //{
+    //    meteor.gameObject.SetActive(false);
+    //    inactiveMeteors.Push(meteor);
+    //}
 
     void OnDrawGizmos()
     {

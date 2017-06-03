@@ -219,7 +219,7 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -639,13 +639,13 @@ ParticleSystem:
     serializedVersion: 4
     enabled: 1
     type: 4
-    angle: 25
+    angle: 10
     length: 5
     boxX: 1
     boxY: 1
     boxZ: 1
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -747,7 +747,7 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2546,7 +2546,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.1
     textureMode: 0
     worldSpace: 0
     dieWithParticles: 1
@@ -3196,7 +3196,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 5
+  m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5

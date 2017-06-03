@@ -5,25 +5,45 @@ using UnityEngine;
 public class Meteor : MonoBehaviour {
 
     public new Rigidbody rigidbody = null;
+    public new ParticleSystem particleSystem = null;
     public MeteorShower meteorShower = null;
     public float initialSpeed = 10;
     public float initialTimer = 10;
     public float timer = 10;
+    public float cullingRadius = 60;
     public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
     private bool exploded = false;
 
-    public void Reset(MeteorShower s)
+    private CullingGroup cullingGroup;
+
+    public void Start()
     {
-        meteorShower = s;
         rigidbody.velocity = transform.forward * initialSpeed;
         timer = initialTimer;
         exploded = false;
 
-        transform.parent = meteorShower.transform;
         StartCoroutine("WaitForTimer");
         gameObject.SetActive(true);
+
+        cullingGroup = new CullingGroup();
+        cullingGroup.targetCamera = Camera.main;
+        cullingGroup.SetBoundingSpheres(
+            new BoundingSphere[] { new BoundingSphere(transform.position, cullingRadius) }
+        );
+        cullingGroup.SetBoundingSphereCount(1);
+        cullingGroup.onStateChanged += OnCullingStateChanged;
+    }
+
+    private void OnCullingStateChanged(CullingGroupEvent e)
+    {
+        if (exploded) { return; }
+        if (e.isVisible) {
+            particleSystem.Play(true);
+        } else {
+            particleSystem.Pause();
+        }
     }
 
     public IEnumerator WaitForTimer()
@@ -33,32 +53,46 @@ public class Meteor : MonoBehaviour {
         yield return null;
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, transform.forward * initialSpeed);
-        Gizmos.DrawRay(transform.position, rigidbody.velocity);
-    }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawRay(transform.position, transform.forward * initialSpeed);
+    //    Gizmos.DrawRay(transform.position, rigidbody.velocity);
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(transform.position, cullingRadius);
+    //}
 
     void OnCollisionEnter(Collision collision)
     {
+        particleSystem.Stop(true);
         if (explodeOnImpact)
         {
             timer = Mathf.Min(timer, 1.0f);
+            //Explode();
         }
     }
 
     public void Explode()
     {
         if (exploded) { return; }
+        exploded = true;
 
         StopAllCoroutines();
+        particleSystem.Stop(true);
         GameObject.Destroy(this.gameObject);
         //if (meteorShower != null) {
         //    meteorShower.DestroyMeteor(this);
         //} else {
         //    GameObject.Destroy(this.gameObject);
         //}
-        exploded = true;
+    }
+
+    public void OnDestroy()
+    {
+        if (cullingGroup != null)
+        {
+            cullingGroup.Dispose();
+            cullingGroup = null;
+        }
     }
 }

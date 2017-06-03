@@ -67,7 +67,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PhongTess: 0.5
-    - _RimMultiplier: 2
+    - _RimMultiplier: 2.49
     - _RimPower: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

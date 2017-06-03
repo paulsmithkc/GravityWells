@@ -152,6 +152,18 @@ Prefab:
       propertyPath: planetGravity
       value: 
       objectReference: {fileID: 1316397830}
+    - target: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
   m_IsPrefabParent: 0
@@ -194,10 +206,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114101903610709576, guid: c2c0c4c6eb1f84841a044c403de0f64c,
+    - target: {fileID: 114351547835780932, guid: c2c0c4c6eb1f84841a044c403de0f64c,
         type: 2}
-      propertyPath: meteorsPerSecond
-      value: 10
+      propertyPath: debrisToSpawn
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2c0c4c6eb1f84841a044c403de0f64c, type: 2}

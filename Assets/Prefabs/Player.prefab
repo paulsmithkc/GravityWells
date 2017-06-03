@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfdb1587e0974545b9b37b7e64b451a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 114743817501211764, guid: ced0128494a4a6246aa45f288d3ea3ad,
+  rocketPrefab: {fileID: 114152177895077288, guid: d658e7cd01e2b714c94064614a4964cd,
     type: 2}
   fireButton: Fire1
 --- !u!135 &135048471790839138

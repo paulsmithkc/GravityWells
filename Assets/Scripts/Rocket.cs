@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour {
     public new Rigidbody rigidbody = null;
     public float initialSpeed = 10;
     public float timer = 10;
+    public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
     private bool exploded = false;
@@ -41,12 +42,16 @@ public class Rocket : MonoBehaviour {
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, transform.forward * initialSpeed);
-        Gizmos.DrawRay(transform.position, rigidbody.velocity);
+
+        if (rigidbody != null)
+        {
+            Gizmos.DrawRay(transform.position, rigidbody.velocity);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!string.Equals(collision.gameObject.tag, "Planet"))
+        if (explodeOnImpact && !string.Equals(collision.gameObject.tag, "Planet"))
         {
             Explode();
         }

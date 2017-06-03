@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114599538734115242}
   - component: {fileID: 114423569390758876}
   - component: {fileID: 114809553001955064}
+  - component: {fileID: 114449224744879582}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -180,6 +181,20 @@ MonoBehaviour:
   jetpackSpeed: 20
   currentMoveVelocity: {x: 0, y: 0, z: 0}
   currentTurnVelocity: 0
+--- !u!114 &114449224744879582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980821475454854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfdb1587e0974545b9b37b7e64b451a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketPrefab: {fileID: 114743817501211764, guid: ced0128494a4a6246aa45f288d3ea3ad,
+    type: 2}
+  fireButton: Fire2
 --- !u!114 &114599538734115242
 MonoBehaviour:
   m_ObjectHideFlags: 1

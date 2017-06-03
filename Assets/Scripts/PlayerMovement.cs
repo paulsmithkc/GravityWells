@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        currentMoveVelocity = Vector3.zero;
+        currentMoveAccel = Vector3.zero;
+        currentTurnVelocity = 0;
+        currentTurnAccel = 0;
     }
 	
 	// Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
     public Transform cameraTarget;
+    public float cameraSmoothTime = 0.15f;
     public Vector3 currentVelocity = Vector3.zero;
     private const float maxAccel = 1000.0f;
 
@@ -18,7 +19,7 @@ public class CameraFollow : MonoBehaviour {
     {
         float deltaTime = Time.fixedDeltaTime;
         Vector3 pos = transform.position;
-        pos = Vector3.SmoothDamp(pos, cameraTarget.position, ref currentVelocity, 0.15f, maxAccel, deltaTime);
+        pos = Vector3.SmoothDamp(pos, cameraTarget.position, ref currentVelocity, cameraSmoothTime, maxAccel, deltaTime);
         transform.position = pos;
 
         transform.rotation = Quaternion.RotateTowards(

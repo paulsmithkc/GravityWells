@@ -22,11 +22,12 @@ GameObject:
   - component: {fileID: 33071240391807208}
   - component: {fileID: 135141960289731468}
   - component: {fileID: 23094397554628012}
+  - component: {fileID: 54774926725830486}
   - component: {fileID: 114608361445439600}
   - component: {fileID: 114987439472727006}
   - component: {fileID: 114101903610709576}
   - component: {fileID: 114351547835780932}
-  - component: {fileID: 54774926725830486}
+  - component: {fileID: 114452363838619616}
   m_Layer: 8
   m_Name: Planet
   m_TagString: Planet
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefab: {fileID: 114301395679053874, guid: 1e50e475555bfa843b67a16754bdcc5c,
     type: 2}
-  meteorsPerSecond: 20
+  meteorsPerSecond: 5
   meteorSpawnRadius: 150
 --- !u!114 &114351547835780932
 MonoBehaviour:
@@ -130,7 +131,22 @@ MonoBehaviour:
   debrisPrefab: {fileID: 1786207779365442, guid: 29e2a83a443600e419634254aba4cba6,
     type: 2}
   debrisSpawnRadius: 52
-  debrisToSpawn: 1000
+  debrisToSpawn: 100
+--- !u!114 &114452363838619616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080715569887996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e088622687c82479cf2f0398ea2453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisPrefab: {fileID: 1125014330028174, guid: bdb157b2c87f003489c126f0c9b2946f,
+    type: 2}
+  debrisSpawnRadius: 52
+  debrisToSpawn: 100
 --- !u!114 &114608361445439600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6859118ecc7795f4f866e405469f0581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityScale: 9.8
+  gravityScale: 10
   gravityRadius: 200
 --- !u!135 &135141960289731468
 SphereCollider:

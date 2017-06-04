@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        planetGravity = FindObjectOfType<PlanetGravitySource>();
         currentMoveVelocity = Vector3.zero;
         currentMoveAccel = Vector3.zero;
         currentTurnVelocity = 0;
@@ -44,11 +45,11 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         float deltaTime = Time.fixedDeltaTime;
-        if (planetGravity != null)
-        {
-            Vector3 planetUp = (this.transform.position - planetGravity.transform.position).normalized;
-            rigidbody.rotation = Quaternion.FromToRotation(transform.up, planetUp) * rigidbody.rotation;
-        }
+        //if (planetGravity != null)
+        //{
+        //    Vector3 planetUp = (this.transform.position - planetGravity.transform.position).normalized;
+        //    rigidbody.rotation = Quaternion.FromToRotation(transform.up, planetUp) * rigidbody.rotation;
+        //}
         rigidbody.MoveRotation(Quaternion.AngleAxis(currentTurnVelocity * deltaTime, transform.up) * rigidbody.rotation);
         rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(currentMoveVelocity) * deltaTime);
 

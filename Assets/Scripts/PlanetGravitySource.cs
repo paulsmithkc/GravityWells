@@ -30,14 +30,14 @@ public class PlanetGravitySource : MonoBehaviour
                 Vector3 force = dir * -gravityScale;
                 rb.AddForce(force, ForceMode.Acceleration);
             }
-            if (string.Equals(c.gameObject.tag, "Player"))
-            {
-                var player = c.GetComponent<PlayerMovement>();
-                if (player != null)
-                {
-                    player.planetGravity = this;
-                }
-            }
+            //if (string.Equals(c.gameObject.tag, "Player"))
+            //{
+            //    var player = c.GetComponent<PlayerMovement>();
+            //    if (player != null)
+            //    {
+            //        player.planetGravity = this;
+            //    }
+            //}
         }
     }
 

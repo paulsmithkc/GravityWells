@@ -64,6 +64,7 @@ public class Meteor : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
+        particleSystem.Play(true);
         particleSystem.Stop(true);
         if (explodeOnImpact)
         {

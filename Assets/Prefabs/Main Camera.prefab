@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 0}
+  cameraSmoothTime: 0.15
   currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114792608059402660
 MonoBehaviour:

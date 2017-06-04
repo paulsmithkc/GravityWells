@@ -290,6 +290,7 @@ MonoBehaviour:
   rigidbody: {fileID: 54470147817816470}
   planetGravity: {fileID: 0}
   player: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 5
   turnSpeed: 30
   smoothTime: 0.15
+  mode: 3

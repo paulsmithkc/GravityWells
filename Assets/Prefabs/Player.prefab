@@ -237,7 +237,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3d8597fd51897224593eac23ecbf6e59, type: 2}
+  - {fileID: 2100000, guid: 6dd7a6034d3bba24aaf4c1feeb9a070e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -290,7 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 54169648145513624}
-  planetGravity: {fileID: 0}
   cameraYawSensitivity: 60
   forwardSpeed: 10
   horizonalSpeed: 5

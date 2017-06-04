@@ -58,13 +58,14 @@
 			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			
             float interior = saturate(dot(normalize(IN.viewDir), o.Normal));
-            float rimStrength = _RimMultiplier * saturate(pow(1.0 - interior, _RimPower));
-            c = lerp(c, _RimColor, rimStrength);
+            float rimStrength = _RimMultiplier * pow(1.0 - interior, _RimPower);
+            c = lerp(c, _RimColor, saturate(rimStrength));
 
             o.Albedo = c.rgb;
             o.Alpha = 1.0;
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
+            o.Emission = _RimColor.rgb * rimStrength;
 		}
 		ENDCG
 	}

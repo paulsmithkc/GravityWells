@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5c1abf61b5266cc4da567408d940ea16, type: 2}
+  - {fileID: 2100000, guid: 6dd7a6034d3bba24aaf4c1feeb9a070e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -357,7 +357,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
     startSize:
       minMaxState: 0
       scalar: 1
@@ -3177,7 +3177,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 3d8597fd51897224593eac23ecbf6e59, type: 2}
+  - {fileID: 2100000, guid: 6dd7a6034d3bba24aaf4c1feeb9a070e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

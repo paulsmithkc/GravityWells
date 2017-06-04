@@ -5,24 +5,38 @@ using UnityEngine;
 public class PortableGravityWell : MonoBehaviour {
     
     public float gravityScale;
+    public float gravityRadius;
     public bool ignorePlayer;
-    
-    private void OnTriggerStay(Collider other)
+
+    void FixedUpdate()
     {
-        if (ignorePlayer && string.Equals(other.gameObject.tag, "Player"))
+        Vector3 pos = transform.position;
+        int planetMask = ~(1 << LayerMask.NameToLayer("Planet"));
+        var colliders = Physics.OverlapSphere(pos, gravityRadius, planetMask, QueryTriggerInteraction.Ignore);
+        foreach (var c in colliders)
         {
-            return;
+            if (ignorePlayer && string.Equals(c.gameObject.tag, "Player"))
+            {
+                continue;
+            }
+
+            var rb = c.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 vec = (rb.position - pos);
+                Vector3 dir = vec.normalized;
+                float force = -gravityScale / vec.sqrMagnitude;
+                if (!float.IsNaN(force) && !float.IsInfinity(force) && force != 0.0f)
+                {
+                    rb.AddForce(dir * force, ForceMode.Acceleration);
+                }
+            }
         }
-        
-        // If the object has a rigidbody...
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb)
-        {
-            // Apply gravity!
-            Vector3 vec = (other.transform.position - this.transform.position);
-            Vector3 dir = vec.normalized;
-            Vector3 force = dir * -gravityScale / vec.sqrMagnitude;
-            rb.AddForce(force, ForceMode.Acceleration);
-        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, gravityRadius);
     }
 }

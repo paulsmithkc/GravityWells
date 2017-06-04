@@ -295,7 +295,7 @@ MonoBehaviour:
   forwardSpeed: 10
   horizonalSpeed: 5
   backwardSpeed: 5
-  jetpackSpeed: 20
+  jetpackSpeed: 10
   currentMoveVelocity: {x: 0, y: 0, z: 0}
   currentTurnVelocity: 0
 --- !u!114 &114449224744879582
@@ -338,7 +338,7 @@ MonoBehaviour:
   rigidbody: {fileID: 54169648145513624}
   planetGravity: {fileID: 0}
   targetHeight: 4
-  hoverForce: 5
+  hoverForce: 2
   hoverPoints:
   - {fileID: 4169413571681274}
   - {fileID: 4826452802830130}

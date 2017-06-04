@@ -109,8 +109,11 @@ public class HoverCar : MonoBehaviour {
     {
         foreach (var t in hoverPoints)
         {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(t.position, 0.4f);
+            if (t != null)
+            {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(t.position, 0.4f);
+            }
         }
     }
 }

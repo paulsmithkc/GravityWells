@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54470147817816470}
   - component: {fileID: 23066957438793794}
   - component: {fileID: 114080059431312442}
+  - component: {fileID: 114182248738513772}
   m_Layer: 10
   m_Name: FlyingDodger
   m_TagString: Untagged
@@ -275,3 +276,20 @@ MonoBehaviour:
   - {fileID: 4066989313178498}
   - {fileID: 4519281738611842}
   - {fileID: 4776022518105048}
+--- !u!114 &114182248738513772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1125014330028174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6132d12e09089944bacb69976f3fbb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 54470147817816470}
+  planetGravity: {fileID: 0}
+  player: {fileID: 0}
+  moveSpeed: 10
+  turnSpeed: 30
+  smoothTime: 0.15

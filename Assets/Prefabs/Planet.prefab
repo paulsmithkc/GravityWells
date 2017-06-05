@@ -131,7 +131,7 @@ MonoBehaviour:
   debrisPrefab: {fileID: 1786207779365442, guid: 29e2a83a443600e419634254aba4cba6,
     type: 2}
   debrisSpawnRadius: 52
-  debrisToSpawn: 100
+  debrisToSpawn: 200
 --- !u!114 &114452363838619616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
   debrisPrefab: {fileID: 1125014330028174, guid: bdb157b2c87f003489c126f0c9b2946f,
     type: 2}
   debrisSpawnRadius: 52
-  debrisToSpawn: 100
+  debrisToSpawn: 200
 --- !u!114 &114608361445439600
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -203,18 +203,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1785926381 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1712706087}
---- !u!114 &1816907163 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114987439472727006, guid: c2c0c4c6eb1f84841a044c403de0f64c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1590905563}
-  m_Script: {fileID: 11500000, guid: 6859118ecc7795f4f866e405469f0581, type: 3}
---- !u!1001 &1922043120
+--- !u!1001 &1735288705
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -253,14 +242,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114067982023322146, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 2097704613}
     - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 1785926381}
+    - target: {fileID: 114751344101291158, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114751344101291158, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: downsample
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f056f9a0b79d49e4c9bfc622337b97c0, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1785926381 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1712706087}
+--- !u!114 &1816907163 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114987439472727006, guid: c2c0c4c6eb1f84841a044c403de0f64c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1590905563}
+  m_Script: {fileID: 11500000, guid: 6859118ecc7795f4f866e405469f0581, type: 3}
+--- !u!4 &2097704613 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4617522982838274, guid: 53543fa88f9d19b4996bf60040860ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1712706087}
 --- !u!1 &2100578782
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Meteor : MonoBehaviour {
     public float initialTimer = 10;
     public float timer = 10;
     public float cullingRadius = 60;
+    public Explosion explosionPrefab = null;
     public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
@@ -64,12 +65,15 @@ public class Meteor : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        particleSystem.Play(true);
-        particleSystem.Stop(true);
         if (explodeOnImpact)
         {
-            timer = Mathf.Min(timer, 1.0f);
-            //Explode();
+            //timer = Mathf.Min(timer, 0.15f);
+            Explode();
+        }
+        else
+        {
+            particleSystem.Play(true);
+            particleSystem.Stop(true);
         }
     }
 
@@ -77,6 +81,10 @@ public class Meteor : MonoBehaviour {
     {
         if (exploded) { return; }
         exploded = true;
+
+        Explosion exp = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
+        exp.explosionRadius = this.explosionRadius;
+        exp.explosionForce = this.explosionForce;
 
         StopAllCoroutines();
         particleSystem.Stop(true);

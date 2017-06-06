@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour {
     public new Rigidbody rigidbody = null;
     public float initialSpeed = 10;
     public float timer = 10;
+    public Explosion explosionPrefab = null;
     public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
@@ -55,21 +56,13 @@ public class Rocket : MonoBehaviour {
     public void Explode()
     {
         if (exploded) { return; }
+        exploded = true;
 
-        //Vector3 pos = transform.position;
-        //int planetMask = ~(1 << LayerMask.NameToLayer("Planet"));
-        //var objects = Physics.OverlapSphere(pos, explosionRadius, planetMask, QueryTriggerInteraction.Ignore);
-        //foreach (var o in objects)
-        //{
-        //    Rigidbody rb = o.GetComponent<Rigidbody>();
-        //    if (rb)
-        //    {
-        //        rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 0, ForceMode.Force);
-        //    }
-        //}
+        Explosion exp = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
+        exp.explosionRadius = this.explosionRadius;
+        exp.explosionForce = this.explosionForce;
 
         StopAllCoroutines();
         GameObject.Destroy(this.gameObject);
-        exploded = true;
     }
 }

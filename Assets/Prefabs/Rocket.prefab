@@ -154,7 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 54048381544363848}
   initialSpeed: 25
-  timer: 20
+  timer: 2
+  explosionPrefab: {fileID: 114793140182502330, guid: 27ba7b77f22cb3d40adcaad96937f249,
+    type: 2}
   explodeOnImpact: 1
   explosionRadius: 10
   explosionForce: 100

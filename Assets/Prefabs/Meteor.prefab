@@ -159,6 +159,8 @@ MonoBehaviour:
   initialTimer: 10
   timer: 5
   cullingRadius: 20
+  explosionPrefab: {fileID: 114793140182502330, guid: 27ba7b77f22cb3d40adcaad96937f249,
+    type: 2}
   explodeOnImpact: 1
   explosionRadius: 10
   explosionForce: 100

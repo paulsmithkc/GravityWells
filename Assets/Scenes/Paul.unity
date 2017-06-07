@@ -289,6 +289,34 @@ Prefab:
       propertyPath: planetGravity
       value: 
       objectReference: {fileID: 1816907163}
+    - target: {fileID: 4749539764648042, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.12765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749539764648042, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000014901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749539764648042, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.018645946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749539764648042, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.01864593
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749539764648042, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.01864593
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964051597444050, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
   m_IsPrefabParent: 0
@@ -331,36 +359,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114067982023322146, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: focalTransform
-      value: 
-      objectReference: {fileID: 1785926381}
     - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 1785926381}
-    - target: {fileID: 114751344101291158, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751344101291158, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: downsample
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 114067982023322146, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114067982023322146, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: visualizeFocus
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 1785926381}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f056f9a0b79d49e4c9bfc622337b97c0, type: 2}
   m_IsPrefabParent: 0
@@ -432,7 +440,7 @@ Canvas:
   m_GameObject: {fileID: 1792986140}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 648310202}
   m_PlaneDistance: 2
   m_PixelPerfect: 0

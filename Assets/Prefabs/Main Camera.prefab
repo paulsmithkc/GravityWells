@@ -25,8 +25,10 @@ GameObject:
   - component: {fileID: 81327464229856372}
   - component: {fileID: 114454100054539340}
   - component: {fileID: 114067982023322146}
+  - component: {fileID: 114318102070882850}
   - component: {fileID: 114751344101291158}
   - component: {fileID: 114202665865213690}
+  - component: {fileID: 114740538353731002}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -103,7 +105,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648213930155928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
@@ -132,7 +134,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648213930155928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
@@ -149,6 +151,20 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
+--- !u!114 &114318102070882850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648213930155928}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478a2083ad114a07d000fbfb8d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: e9ba2083ad114a07d000fbfb8d76c639, type: 3}
+  blurAmount: 0.4
+  extraBlur: 0
 --- !u!114 &114454100054539340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +179,18 @@ MonoBehaviour:
   cameraTarget: {fileID: 0}
   cameraSmoothTime: 0.15
   currentVelocity: {x: 0, y: 0, z: 0}
+--- !u!114 &114740538353731002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648213930155928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: b3649c0a3e3b848429c5c5f0f192e2ea, type: 2}
 --- !u!114 &114751344101291158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be6b8ead8a2e04409858585ec1ef90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downsample: 2
+  downsample: 3
 --- !u!124 &124945726158179070
 Behaviour:
   m_ObjectHideFlags: 1

@@ -289,11 +289,6 @@ Prefab:
       propertyPath: planetGravity
       value: 
       objectReference: {fileID: 1816907163}
-    - target: {fileID: 114423569390758876, guid: 53543fa88f9d19b4996bf60040860ab2,
-        type: 2}
-      propertyPath: planetGravity
-      value: 
-      objectReference: {fileID: 1816907163}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53543fa88f9d19b4996bf60040860ab2, type: 2}
   m_IsPrefabParent: 0

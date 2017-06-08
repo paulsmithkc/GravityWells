@@ -12,7 +12,7 @@ Shader "Dithering Shaders/Normal/Diffuse" {
 		Tags { "IgnoreProjector"="True" "RenderType"="Opaque" }
 		LOD 200
 
-		BlendOp Max
+		//BlendOp Max
 
 		CGPROGRAM
 		#pragma surface surf Lambert vertex:vert finalcolor:dither

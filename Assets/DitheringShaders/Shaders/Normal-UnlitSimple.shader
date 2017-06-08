@@ -46,8 +46,7 @@ Shader "Dithering Shaders/Normal/Unlit Simple" {
 
 			fixed4 frag(FragmentInput i) : COLOR {
 				float4 c = tex2D(_MainTex, i.uv);
-				return fixed4(GetDitherColorSimple(c.rgb, _PaletteTex,
-					_PaletteHeight, i.screenPos, _ColorCount), c.a);
+				return fixed4(GetDitherColorSimple(c.rgb, _PaletteTex, _PaletteHeight, i.screenPos, _ColorCount), c.a);
 			}
 			ENDCG
 		}

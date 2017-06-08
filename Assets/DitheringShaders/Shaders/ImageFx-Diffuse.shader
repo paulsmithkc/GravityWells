@@ -39,8 +39,7 @@ Shader "Dithering Shaders/ImageFx/Diffuse" {
 		}
 
 		void dither(Input i, SurfaceOutput o, inout fixed4 color) {
-			color.rgb = GetDitherColor(color.rgb, _DitherTex, _PaletteTex,
-				_PaletteHeight, i.ditherPos, _ColorCount);
+			color.rgb = GetDitherColor(color.rgb, _DitherTex, _PaletteTex, _PaletteHeight, i.ditherPos, _ColorCount);
 		}
 		ENDCG
 	}

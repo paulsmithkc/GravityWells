@@ -13,7 +13,7 @@ Shader "Dithering Shaders/Cutout/Diffuse" {
 		Tags { "IgnoreProjector"="True" "Queue"="AlphaTest" "RenderType"="TransparentCutout" }
 		LOD 200
 
-		BlendOp Max
+		//BlendOp Max
 
 		CGPROGRAM
 		#pragma surface surf Lambert vertex:vert finalcolor:dither alphatest:_Cutoff

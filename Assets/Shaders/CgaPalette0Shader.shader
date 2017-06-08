@@ -52,13 +52,20 @@
 				return o;
 			}
 
+			static const fixed secondaryScale = (85.0/256.0);
+
 			inline fixed3 GetDitherColor(fixed3 color, sampler2D ditherTex, float4 ditherPos) {
 				
 				float ditherValue = tex2D(ditherTex, ditherPos.xy / ditherPos.w).r;
-				return fixed3(
+				fixed3 ditheredColor = fixed3(
 					step(0.5, floor(color.r * 16) / 16 - 0.1 * ditherValue), 
 					step(0.5, floor(color.g * 16) / 16 - 0.1 * ditherValue),
 					0
+				);
+				return fixed3(
+					max(ditheredColor.r, ditheredColor.g * secondaryScale),
+					max(ditheredColor.r * secondaryScale, ditheredColor.g),
+					max(ditheredColor.r * secondaryScale, ditheredColor.g * secondaryScale)
 				);
 			}
 

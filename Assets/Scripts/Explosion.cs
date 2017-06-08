@@ -22,7 +22,7 @@ public class Explosion : MonoBehaviour {
         }
         else
         {
-            Debug.Log("BOOM");
+            //Debug.Log("BOOM");
         }
 
         player = GameObject.FindObjectOfType<PlayerMovement>();

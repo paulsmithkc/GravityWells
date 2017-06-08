@@ -296,14 +296,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4617522982838274}
   - component: {fileID: 33852741395685494}
-  - component: {fileID: 135514864645948930}
   - component: {fileID: 23562356389974600}
+  - component: {fileID: 65439527560162978}
   - component: {fileID: 54169648145513624}
   - component: {fileID: 114599538734115242}
   - component: {fileID: 114423569390758876}
   - component: {fileID: 114656293906385776}
   - component: {fileID: 114809553001955064}
   - component: {fileID: 114449224744879582}
+  - component: {fileID: 114337028679669636}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -511,8 +512,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934679807667450}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0, y: -0.25861, z: 0}
-  m_LocalScale: {x: 0.02751656, y: 0.027516535, z: 0.027516535}
+  m_LocalPosition: {x: -0, y: -0.71, z: 0.007}
+  m_LocalScale: {x: 0.018645946, y: 0.01864593, z: 0.01864593}
   m_Children:
   - {fileID: 4317079228160796}
   - {fileID: 4521402970820554}
@@ -556,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1183308902478870}
   m_LocalRotation: {x: 0.24073638, y: -0.000000029802322, z: -0.000000014901161, w: 0.9705906}
-  m_LocalPosition: {x: 0.21, y: 4.09, z: -7.84}
+  m_LocalPosition: {x: 0.21, y: 3.66, z: -5.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4617522982838274}
@@ -967,6 +968,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65439527560162978
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980821475454854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.83, z: 1}
+  m_Center: {x: 0, y: -0.34, z: 0}
 --- !u!95 &95532050717063392
 Animator:
   serializedVersion: 3
@@ -984,6 +997,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114337028679669636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980821475454854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016a0e30d68b7224294dfcd28a4d7cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWheelAscent: 0
+  maxWheelDrop: 1.5
+  wheels:
+  - transform: {fileID: 4521402970820554}
+    currentVelocity: {x: 0, y: 0, z: 0}
+  - transform: {fileID: 4230456563222566}
+    currentVelocity: {x: 0, y: 0, z: 0}
+  - transform: {fileID: 4544514080032186}
+    currentVelocity: {x: 0, y: 0, z: 0}
+  - transform: {fileID: 4489207263465094}
+    currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114423569390758876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,16 +1125,4 @@ SphereCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135514864645948930
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980821475454854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}

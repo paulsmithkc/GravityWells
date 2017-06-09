@@ -67,7 +67,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PhongTess: 0.5
-    - _RimMultiplier: 0.5
+    - _RimMultiplier: 0.4
     - _RimPower: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -75,6 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.33333334, g: 1, b: 0.33333334, a: 1}
+    - _Color: {r: 0.29682097, g: 0.89705884, b: 0.29682097, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.03179065, g: 0.102941155, b: 0.03179065, a: 1}

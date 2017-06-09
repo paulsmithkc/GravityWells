@@ -58,7 +58,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+  m_BackGroundColor: {r: 0.625, g: 0.0045955926, b: 0.0045955926, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -162,9 +162,9 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 83251fcadfad93646b3f93d8501a9306, type: 2}
   ColorCount: 4
   PaletteHeight: 64
-  PaletteTexture: {fileID: 2800000, guid: fb33da2b388e3b24a8c66d4fcf175a25, type: 3}
+  PaletteTexture: {fileID: 2800000, guid: ffb96fd61a5e10043a25c07a33cf7168, type: 3}
   DitherSize: 8
-  DitherTexture: {fileID: 2800000, guid: 22cc52c970d60d14abbee1eb9a464451, type: 3}
+  DitherTexture: {fileID: 2800000, guid: e415a7c64c416a643b7777a2d2343e9b, type: 3}
 --- !u!114 &114740538353731002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -351,41 +351,6 @@ Prefab:
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 1785926381}
-    - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114552334669687314, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114552334669687314, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: PaletteTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: ffb96fd61a5e10043a25c07a33cf7168, type: 3}
-    - target: {fileID: 114552334669687314, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: DitherSize
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114552334669687314, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: DitherTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: e415a7c64c416a643b7777a2d2343e9b, type: 3}
-    - target: {fileID: 20886226977033568, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20886226977033568, guid: f056f9a0b79d49e4c9bfc622337b97c0,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f056f9a0b79d49e4c9bfc622337b97c0, type: 2}
   m_IsPrefabParent: 0

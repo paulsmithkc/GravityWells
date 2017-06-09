@@ -304,6 +304,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114101903610709576, guid: c2c0c4c6eb1f84841a044c403de0f64c,
+        type: 2}
+      propertyPath: meteorsPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2c0c4c6eb1f84841a044c403de0f64c, type: 2}
   m_IsPrefabParent: 0

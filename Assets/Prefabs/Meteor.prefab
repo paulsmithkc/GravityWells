@@ -159,7 +159,7 @@ MonoBehaviour:
   initialTimer: 10
   timer: 5
   cullingRadius: 20
-  explosionPrefab: {fileID: 114793140182502330, guid: 27ba7b77f22cb3d40adcaad96937f249,
+  explosionPrefab: {fileID: 114841497144803524, guid: 402b37f658dabac40a4ec4d8ec9f2e0e,
     type: 2}
   explodeOnImpact: 1
   explosionRadius: 3

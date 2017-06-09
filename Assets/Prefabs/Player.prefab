@@ -978,7 +978,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.83, z: 1}
+  m_Size: {x: 0.7, y: 0.83, z: 1}
   m_Center: {x: 0, y: -0.34, z: 0}
 --- !u!95 &95532050717063392
 Animator:
@@ -1036,6 +1036,16 @@ MonoBehaviour:
   horizonalSpeed: 5
   backwardSpeed: 5
   jetpackSpeed: 10
+  engineAccelTime: 0.5
+  engineVolume: 0.5
+  enginePitchMin: 1
+  enginePitchMax: 6
+  enginePitchMultiplier: 1
+  highPitchMultiplier: 0.25
+  lowAccelClip: {fileID: 8300000, guid: c4d8928c75c21af43998193f0f038429, type: 3}
+  lowDecelClip: {fileID: 8300000, guid: 5699dddcce16c4543b95951c4ce0e092, type: 3}
+  highAccelClip: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
+  highDecelClip: {fileID: 8300000, guid: 03bf91d88fce91c41995d27de63cc967, type: 3}
   currentMoveVelocity: {x: 0, y: 0, z: 0}
   currentTurnVelocity: 0
 --- !u!114 &114449224744879582

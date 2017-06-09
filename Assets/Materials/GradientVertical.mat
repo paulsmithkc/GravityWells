@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BeamVertical
+  m_Name: GradientVertical
   m_Shader: {fileID: 4800000, guid: 6469de34422616a4c97efa0dedd30786, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

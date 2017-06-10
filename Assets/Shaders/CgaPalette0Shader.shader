@@ -58,8 +58,8 @@
 				
 				float ditherValue = tex2D(ditherTex, ditherPos.xy / ditherPos.w).r;
 				fixed3 ditheredColor = fixed3(
-					step(0.5, floor(color.r * 16) / 16 - 0.1 * ditherValue), 
-					step(0.5, floor(color.g * 16) / 16 - 0.1 * ditherValue),
+					step(0.5, color.r - 0.1 * ditherValue),
+					step(0.5, color.g - 0.1 * ditherValue),
 					0
 				);
 				return fixed3(

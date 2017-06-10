@@ -1062,6 +1062,7 @@ MonoBehaviour:
   rocketPrefab: {fileID: 114743817501211764, guid: ced0128494a4a6246aa45f288d3ea3ad,
     type: 2}
   fireButton: Fire2
+  spreadFactor: 2
 --- !u!114 &114599538734115242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1124,6 +1125,7 @@ MonoBehaviour:
   rocketPrefab: {fileID: 114152177895077288, guid: d658e7cd01e2b714c94064614a4964cd,
     type: 2}
   fireButton: Fire1
+  spreadFactor: 1
 --- !u!135 &135048471790839138
 SphereCollider:
   m_ObjectHideFlags: 1

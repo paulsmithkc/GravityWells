@@ -26,8 +26,8 @@ GameObject:
   - component: {fileID: 114454100054539340}
   - component: {fileID: 114751344101291158}
   - component: {fileID: 114202665865213690}
-  - component: {fileID: 114740538353731002}
   - component: {fileID: 114460732262958786}
+  - component: {fileID: 114740538353731002}
   - component: {fileID: 114552334669687314}
   m_Layer: 0
   m_Name: Main Camera
@@ -58,7 +58,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.625, g: 0.0045955926, b: 0.0045955926, a: 1}
+  m_BackGroundColor: {r: 0.5588235, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

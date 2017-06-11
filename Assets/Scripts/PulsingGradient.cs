@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PulsingGradient : MonoBehaviour {
 
-    public float EdgeMultiplier = 10;
     public float EdgeMultiplierMin = 5;
     public float EdgeMultiplierMax = 10;
     public float EdgeMultiplierFreq = 1;
+    public Color MinColor = Color.white;
+    public Color MaxColor = Color.white;
     private float Theta = 0;
-    public Renderer renderer = null;
+    private float CurrentEdgeMultiplier = 10;
+    private Color CurrentColor = Color.white;
+    public Renderer Renderer = null;
 
     // Use this for initialization
     void Start() {
@@ -20,17 +23,17 @@ public class PulsingGradient : MonoBehaviour {
 	void Update() {
         float deltaTime = Time.deltaTime;
         float tau = Mathf.PI * 2;
-
         Theta = (Theta + deltaTime * EdgeMultiplierFreq) % 1;
-        EdgeMultiplier = Mathf.Lerp(
-            EdgeMultiplierMin,
-            EdgeMultiplierMax,
-            Mathf.Sin(Theta * tau) * 0.5f + 1.0f
-        );
 
-        if (renderer != null)
+        float t = Mathf.Sin(Theta * tau) * 0.5f + 1.0f;
+        CurrentEdgeMultiplier = Mathf.Lerp(EdgeMultiplierMin, EdgeMultiplierMax, t);
+        CurrentColor = Color.Lerp(MinColor, MaxColor, t);
+
+        if (Renderer != null)
         {
-            renderer.material.SetFloat("_EdgeMultiplier", EdgeMultiplier);
+            var material = Renderer.material;
+            material.SetFloat("_EdgeMultiplier", CurrentEdgeMultiplier);
+            material.SetColor("_Color", CurrentColor);
         }
     }
 }

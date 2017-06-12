@@ -33,9 +33,20 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 currentMoveAccel = Vector3.zero;
     public float currentTurnVelocity = 0;
     private float currentTurnAccel = 0;
+    public Inputs inputs = new Inputs();
+
+    [System.Serializable]
+    public struct Inputs
+    {
+        public bool allowPlayerControl;
+        public float Horizontal;
+        public float Vertical;
+        public float CameraYaw;
+        public float CameraPitch;
+    }
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         rigidbody = GetComponent<Rigidbody>();
         //planetGravity = FindObjectOfType<PlanetGravitySource>();
         currentMoveVelocity = Vector3.zero;
@@ -51,12 +62,19 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        float deltaTime = Time.deltaTime;
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        float cameraYaw = Input.GetAxis("Camera Yaw");
+        if (inputs.allowPlayerControl)
+        {
+            inputs.Horizontal = Input.GetAxis("Horizontal");
+            inputs.Vertical = Input.GetAxis("Vertical");
+            inputs.CameraYaw = Input.GetAxis("Camera Yaw");
+            inputs.CameraPitch = Input.GetAxis("Camera Pitch");
+        }
 
-        float targetTurnVelocity = cameraYaw * cameraYawSensitivity;
+        float deltaTime = Time.deltaTime;
+        float h = inputs.Horizontal;
+        float v = inputs.Vertical;
+
+        float targetTurnVelocity = inputs.CameraYaw * cameraYawSensitivity;
         currentTurnVelocity = Mathf.SmoothDamp(currentTurnVelocity, targetTurnVelocity, ref currentTurnAccel, 0.15f, maxAccel, deltaTime);
 
         Vector3 targetVelocity = new Vector3(h * horizonalSpeed, 0, v * (v >= 0 ? forwardSpeed : backwardSpeed));
@@ -109,9 +127,8 @@ public class PlayerMovement : MonoBehaviour {
         //}
         rigidbody.MoveRotation(Quaternion.AngleAxis(currentTurnVelocity * deltaTime, transform.up) * rigidbody.rotation);
         rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(currentMoveVelocity) * deltaTime);
-
-        float cameraPitch = Input.GetAxis("Camera Pitch");
-        rigidbody.AddForce(transform.up * cameraPitch * jetpackSpeed, ForceMode.Acceleration);
+        
+        rigidbody.AddForce(transform.up * inputs.CameraPitch * jetpackSpeed, ForceMode.Acceleration);
     }
 
     // sets up and adds new audio source to the gane object

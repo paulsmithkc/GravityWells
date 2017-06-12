@@ -9,14 +9,36 @@ public class TextTyping : MonoBehaviour {
     public float characterPerSecond = 10;
     public float messageDelay = 1;
     private float charactersPending = 0;
-    private Queue<string> queue = new Queue<string>();
+    private Queue<Message> queue = new Queue<Message>();
 
-	// Use this for initialization
-	void Start() {
+    [System.Serializable]
+    public class Message
+    {
+        public string message;
+        public bool keepOnScreen;
+        public System.Action<string> callback;
+    }
+
+    public bool IsEmpty
+    {
+        get { return queue.Count == 0; }
+    }
+
+    public void Clear()
+    {
         queue.Clear();
-        queue.Enqueue("Systems Online");
-        queue.Enqueue("Mission Objective: Extermination");
-        queue.Enqueue("Commence");
+    }
+
+    public void Enqueue(string message, bool keepOnScreen = false, System.Action<string> callback = null)
+    {
+        queue.Enqueue(new Message {
+            message = message,
+            keepOnScreen = keepOnScreen,
+            callback = callback
+        });
+    }
+    
+	void Start() {
         StartCoroutine(TypeCharacters());
     }
 	
@@ -27,15 +49,17 @@ public class TextTyping : MonoBehaviour {
     IEnumerator TypeCharacters()
     {
         var sb = new System.Text.StringBuilder();
-        string line = null;
+        Message currentMessage = null;
         int charsWritten = 0;
+        bool keepOnScreen = false;
         while (enabled)
         {
             charactersPending += characterPerSecond * Time.deltaTime;
             if (charactersPending > 0)
             {
-                if (line != null)
+                if (currentMessage != null)
                 {
+                    string line = currentMessage.message;
                     int charCount = Mathf.FloorToInt(charactersPending);
                     if (charCount <= 0)
                     {
@@ -43,11 +67,17 @@ public class TextTyping : MonoBehaviour {
                     }
                     else if ((charCount + charsWritten) > line.Length)
                     {
+                        Message m = currentMessage;
                         charactersPending -= (line.Length - charsWritten);
                         charactersPending -= (characterPerSecond * messageDelay);
                         sb.Append(line.Substring(charsWritten));
-                        line = null;
+                        currentMessage = null;
                         charsWritten = 0;
+
+                        if (m.callback != null)
+                        {
+                            m.callback(m.message);
+                        }
                     }
                     else
                     {
@@ -60,14 +90,15 @@ public class TextTyping : MonoBehaviour {
                 {
                     charactersPending = 0;
                     sb.Remove(0, sb.Length);
-                    line = queue.Dequeue();
+                    currentMessage = queue.Dequeue();
                     charsWritten = 0;
+                    keepOnScreen = currentMessage.keepOnScreen;
                 }
-                else
+                else if (!keepOnScreen)
                 {
                     charactersPending = 0;
                     sb.Remove(0, sb.Length);
-                    line = null;
+                    currentMessage = null;
                     charsWritten = 0;
                 }
             }

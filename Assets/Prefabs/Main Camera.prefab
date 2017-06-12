@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114740538353731002}
   - component: {fileID: 114994770576238792}
   - component: {fileID: 114552334669687314}
+  - component: {fileID: 114061048606725900}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648213930155928}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.659, y: 90.278, z: 0}
+  m_LocalPosition: {x: 4.659, y: 88.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +101,22 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648213930155928}
   m_Enabled: 1
+--- !u!114 &114061048606725900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648213930155928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd22b7fbb7e2241b02168570b26ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  meteorShower: {fileID: 0}
+  camera: {fileID: 20886226977033568}
+  cameraFadeEffect: {fileID: 114994770576238792}
+  pixelateImageEffect: {fileID: 114751344101291158}
 --- !u!114 &114202665865213690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,12 +201,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648213930155928}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be6b8ead8a2e04409858585ec1ef90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downsample: 8
+  downsample: 1
 --- !u!114 &114994770576238792
 MonoBehaviour:
   m_ObjectHideFlags: 1

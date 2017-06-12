@@ -109,6 +109,12 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &63259917 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114101903610709576, guid: c2c0c4c6eb1f84841a044c403de0f64c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1590905563}
+  m_Script: {fileID: 11500000, guid: 28a3f0ef841da6e47aa0d897e541b2d7, type: 3}
 --- !u!1001 &349794519
 Prefab:
   m_ObjectHideFlags: 0
@@ -242,7 +248,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -112}
-  m_SizeDelta: {x: 300, y: 30}
+  m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089735792
 MonoBehaviour:
@@ -395,6 +401,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2c0c4c6eb1f84841a044c403de0f64c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1627939089 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114423569390758876, guid: 53543fa88f9d19b4996bf60040860ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 450594960}
+  m_Script: {fileID: 11500000, guid: 9d11e208846199b4faf94701d2575127, type: 3}
 --- !u!1001 &1735288705
 Prefab:
   m_ObjectHideFlags: 0
@@ -434,6 +446,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1627939089}
+    - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: meteorShower
+      value: 
+      objectReference: {fileID: 63259917}
     - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
       propertyPath: cameraTarget

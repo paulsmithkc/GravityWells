@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114202665865213690}
   - component: {fileID: 114460732262958786}
   - component: {fileID: 114740538353731002}
+  - component: {fileID: 114994770576238792}
   - component: {fileID: 114552334669687314}
   m_Layer: 0
   m_Name: Main Camera
@@ -189,6 +190,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downsample: 8
+--- !u!114 &114994770576238792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648213930155928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c81305f8da3e904d9743152929ea89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: aba172b96850ca2499168891fc9e247e, type: 2}
+  startColor: {r: 0, g: 0, b: 0, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  timeElapsed: 0
+  timeToFade: 4
 --- !u!124 &124945726158179070
 Behaviour:
   m_ObjectHideFlags: 1

@@ -34,6 +34,11 @@ public class EnemyMovement : MonoBehaviour {
         SetMode(mode);
     }
 
+    void Awake()
+    {
+        SetMode(mode);
+    }
+
     public void SetMode(Mode m)
     {
         mode = m;

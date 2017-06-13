@@ -469,6 +469,7 @@ MonoBehaviour:
   blinkRate: 0.3
   tellLength: 3
   attackLength: 1
+  damagePerSecond: 6
   cooldown: 5
   tellWidth: 1
   attackWidth: 3

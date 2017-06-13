@@ -11,6 +11,7 @@ public class Rocket : MonoBehaviour {
     public bool explodeOnImpact = true;
     public float explosionRadius = 10;
     public float explosionForce = 100;
+    public float explosionDamage = 6;
     private bool exploded = false;
 
     // Use this for initialization
@@ -61,6 +62,7 @@ public class Rocket : MonoBehaviour {
         Explosion exp = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
         exp.explosionRadius = this.explosionRadius;
         exp.explosionForce = this.explosionForce;
+        exp.explosionDamage = this.explosionDamage;
 
         StopAllCoroutines();
         GameObject.Destroy(this.gameObject);

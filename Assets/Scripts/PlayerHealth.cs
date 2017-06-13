@@ -21,4 +21,9 @@ public class PlayerHealth : MonoBehaviour {
             0, maxHealth
         );
     }
+
+    public void DamagePlayer(float damage)
+    {
+        currentHealth -= damage;
+    }
 }

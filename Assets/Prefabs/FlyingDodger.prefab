@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114182248738513772}
   - component: {fileID: 82562609179635488}
   - component: {fileID: 114284992893061302}
+  - component: {fileID: 114598196555231824}
   m_Layer: 10
   m_Name: FlyingDodger
   m_TagString: Untagged
@@ -471,6 +472,21 @@ MonoBehaviour:
   attackLength: 1
   damagePerSecond: 6
   cooldown: 5
+--- !u!114 &114598196555231824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1125014330028174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80849ccb7dde6a140ae3ee8f3ef6665d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 5
+  explosionPrefab: {fileID: 114110412231027118, guid: a3dc219fcd533cf4c92cd65d09634a65,
+    type: 2}
 --- !u!120 &120842947123038074
 LineRenderer:
   m_ObjectHideFlags: 1

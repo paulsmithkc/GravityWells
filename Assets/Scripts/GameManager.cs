@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
 
     public void DamagePlayer(float damage)
     {
-        playerHealth.currentHealth -= damage;
+        playerHealth.DamagePlayer(damage);
     }
 
     void Update()

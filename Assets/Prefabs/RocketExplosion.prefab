@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114793140182502330}
   - component: {fileID: 82220195381974980}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: RocketExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 10
   explosionForce: 100
+  explosionDamage: 6
   explosionDuration: 1
   explosionSound: {fileID: 0}
   explosionVolume: 1

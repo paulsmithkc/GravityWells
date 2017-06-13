@@ -467,9 +467,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   blinkRate: 0.3
-  tellLength: 2
+  tellLength: 3
   attackLength: 1
   cooldown: 5
+  tellWidth: 1
+  attackWidth: 3
 --- !u!120 &120842947123038074
 LineRenderer:
   m_ObjectHideFlags: 1

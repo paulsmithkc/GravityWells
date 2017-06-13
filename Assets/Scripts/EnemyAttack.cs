@@ -17,17 +17,36 @@ public class EnemyAttack : MonoBehaviour
     public float cooldown = 5.0f;
     private float timeleft = 0.0f;
 
+    public float tellWidth = 1.0f;
+    public float attackWidth = 3.0f;
+
     private GameObject player;
     private LineRenderer lr;
+    private Vector3 target;
 
-    private enum Phase { IDLE, TELLING, ATTACKING }
-    private Phase phase = Phase.IDLE;
+    public enum Phase { IDLE, TELLING, ATTACKING }
+    private Phase _phase = Phase.IDLE;
+    public Phase phase
+    {
+        get
+        {
+            return _phase;
+        }
+    }
+
+    private EnemyMovement movement;
+    private HoverCar hover;
+    private Rigidbody rb;
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         lr = GetComponentInChildren<LineRenderer>();
+
+        hover = GetComponent<HoverCar>();
+        movement = GetComponent<EnemyMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,44 +55,50 @@ public class EnemyAttack : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.transform.position);
         if (dist > range)
         {
-            if (phase != Phase.IDLE) timeleft = cooldown;
+            if (_phase != Phase.IDLE) timeleft = cooldown;
             lr.enabled = false;
-            phase = Phase.IDLE;
+            _phase = Phase.IDLE;
         }
         else
         {
-            UpdateLine();
 
-            switch (phase)
+            switch (_phase)
             {
                 case Phase.IDLE:
                     if (timeleft <= 0)
                     {
-                        phase = Phase.TELLING;
+                        target = player.transform.position;
+                        _phase = Phase.TELLING;
+                        UpdateLine();
+
+                        DisableMovement();
+
+                        lr.startWidth = tellWidth;
+                        lr.endWidth = tellWidth;
+
                         timeleft = tellLength;
+                        StartCoroutine(LineFlash());
                     }
                     break;
 
                 case Phase.TELLING:
-                    // Update line renderer target
-                    float t = (tellLength - timeleft) / tellLength;
-                    lr.startWidth = Mathf.SmoothStep(0, 2.0f, t);
-                    lr.enabled = true;
                     if (timeleft <= 0)
                     {
-                        phase = Phase.ATTACKING;
+                        _phase = Phase.ATTACKING;
                         timeleft = attackLength;
                     }
                     break;
 
                 case Phase.ATTACKING:
                     // Update line renderer target
-                    lr.startWidth = 2.0f;
+                    lr.startWidth = attackWidth;
+                    lr.endWidth = attackWidth;
                     lr.enabled = true;
                     if (timeleft <= 0)
                     {
+                        EnableMovement();
                         lr.enabled = false;
-                        phase = Phase.IDLE;
+                        _phase = Phase.IDLE;
                         timeleft = cooldown;
                     }
                     break;
@@ -89,8 +114,35 @@ public class EnemyAttack : MonoBehaviour
     {
         lr.SetPositions(new Vector3[] {
             transform.position,
-            player.transform.position
+            target
         });
+    }
+
+    private void DisableMovement()
+    {
+        movement.enabled = false;
+        hover.enabled = false;
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    private void EnableMovement()
+    {
+        movement.enabled = true;
+        hover.enabled = true;
+        rb.useGravity = true;
+    }
+
+    IEnumerator LineFlash()
+    {
+        while (_phase == Phase.TELLING)
+        {
+            float t = (timeleft / tellLength) / 2.0f;
+            //Debug.Log(t);
+            lr.enabled = !lr.enabled;
+            yield return new WaitForSeconds(t);
+        }
     }
 
 }

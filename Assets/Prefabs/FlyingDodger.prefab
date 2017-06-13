@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114182248738513772}
   - component: {fileID: 82562609179635488}
   - component: {fileID: 114284992893061302}
-  - component: {fileID: 114598196555231824}
+  - component: {fileID: 114704212271385580}
   m_Layer: 10
   m_Name: FlyingDodger
   m_TagString: Untagged
@@ -468,11 +468,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   blinkRate: 0.3
-  tellLength: 2
+  tellLength: 3
   attackLength: 1
   damagePerSecond: 6
   cooldown: 5
---- !u!114 &114598196555231824
+  tellWidth: 1
+  attackWidth: 3
+--- !u!114 &114704212271385580
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

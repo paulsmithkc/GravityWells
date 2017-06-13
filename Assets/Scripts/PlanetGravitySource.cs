@@ -15,7 +15,7 @@ public class PlanetGravitySource : MonoBehaviour
         foreach (var c in colliders)
         {
             var rb = c.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (rb != null && rb.useGravity)
             {
                 Vector3 vec = (rb.position - pos);
                 Vector3 dir = vec.normalized;

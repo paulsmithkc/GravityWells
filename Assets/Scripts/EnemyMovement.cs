@@ -88,18 +88,24 @@ public class EnemyMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        float deltaTime = Time.deltaTime;
-        currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, targetVelocity, ref currentMoveAccel, smoothTime, maxAccel, deltaTime);
+        if (rigidbody.useGravity)
+        {
+            float deltaTime = Time.deltaTime;
+            currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, targetVelocity, ref currentMoveAccel, smoothTime, maxAccel, deltaTime);
+        }
     }
 
     void FixedUpdate()
     {
-        float deltaTime = Time.fixedDeltaTime;
-        rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, targetRotation, turnSpeed));
-        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(currentMoveVelocity) * deltaTime);
+        if (rigidbody.useGravity)
+        {
+            float deltaTime = Time.fixedDeltaTime;
+            rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, targetRotation, turnSpeed));
+            rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(currentMoveVelocity) * deltaTime);
 
-        Vector3 forward = (player.transform.position - rigidbody.position).normalized;
-        Vector3 upwards = (rigidbody.position - planetGravity.transform.position).normalized;
-        targetRotation = Quaternion.LookRotation(forward, upwards);
+            Vector3 forward = (player.transform.position - rigidbody.position).normalized;
+            Vector3 upwards = (rigidbody.position - planetGravity.transform.position).normalized;
+            targetRotation = Quaternion.LookRotation(forward, upwards);
+        }
     }
 }

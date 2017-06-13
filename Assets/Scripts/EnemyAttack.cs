@@ -71,7 +71,7 @@ public class EnemyAttack : MonoBehaviour
                 case Phase.IDLE:
                     if (timeleft <= 0)
                     {
-                        target = mgr.player.transform.position;
+                        target = mgr.playerPosition;
                         _phase = Phase.TELLING;
                         UpdateLine();
 
@@ -117,7 +117,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void UpdateLine()
     {
-        Vector3 playerPosition = mgr.playerPosition;
         lr.SetPositions(new Vector3[] {
             transform.position,
             target

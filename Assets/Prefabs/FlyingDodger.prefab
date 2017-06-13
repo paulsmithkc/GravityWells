@@ -469,6 +469,7 @@ MonoBehaviour:
   blinkRate: 0.3
   tellLength: 2
   attackLength: 1
+  damagePerSecond: 6
   cooldown: 5
 --- !u!120 &120842947123038074
 LineRenderer:

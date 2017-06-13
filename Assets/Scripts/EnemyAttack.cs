@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-
     public float range = 10.0f;
 
     public float blinkRate = 0.3f;
     public float tellLength = 2.0f;
     public float attackLength = 1.0f;
+    public float damagePerSecond = 0.5f;
     private bool telling = false;
     private bool attacking = false;
 
@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
     public float cooldown = 5.0f;
     private float timeleft = 0.0f;
 
-    private GameObject player;
+    private GameManager mgr;
     private LineRenderer lr;
 
     private enum Phase { IDLE, TELLING, ATTACKING }
@@ -26,14 +26,17 @@ public class EnemyAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        mgr = GameObject.FindObjectOfType<GameManager>();
         lr = GetComponentInChildren<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(transform.position, player.transform.position);
+        float deltaTime = Time.deltaTime;
+        Vector3 playerPosition = mgr.playerPosition;
+
+        float dist = Vector3.Distance(transform.position, playerPosition);
         if (dist > range)
         {
             if (phase != Phase.IDLE) timeleft = cooldown;
@@ -76,6 +79,7 @@ public class EnemyAttack : MonoBehaviour
                         phase = Phase.IDLE;
                         timeleft = cooldown;
                     }
+                    mgr.DamagePlayer(deltaTime * damagePerSecond);
                     break;
 
             }
@@ -87,9 +91,10 @@ public class EnemyAttack : MonoBehaviour
 
     private void UpdateLine()
     {
+        Vector3 playerPosition = mgr.playerPosition;
         lr.SetPositions(new Vector3[] {
             transform.position,
-            player.transform.position
+            playerPosition
         });
     }
 

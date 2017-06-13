@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoryManager : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
+    public GameObject player;
     public PlayerMovement playerMovement;
+    public PlayerHealth playerHealth;
     public MeteorShower meteorShower;
     public TextTyping textTyping;
 
@@ -12,9 +14,10 @@ public class StoryManager : MonoBehaviour {
     public FadeImageEffect cameraFadeEffect;
     public PixelateImageEffect pixelateImageEffect;
     
-	// Use this for initialization
-	void Start () {
-        playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
+	void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerHealth = player.GetComponent<PlayerHealth>();
         meteorShower = GameObject.FindObjectOfType<MeteorShower>();
         textTyping = GameObject.FindObjectOfType<TextTyping>();
 
@@ -28,6 +31,23 @@ public class StoryManager : MonoBehaviour {
     void OnDestroy()
     {
         StopAllCoroutines();
+    }
+
+    public Vector3 playerPosition
+    {
+        get { return player.transform.position; }
+    }
+
+    public void DamagePlayer(float damage)
+    {
+        playerHealth.currentHealth -= damage;
+    }
+
+    void Update()
+    {
+        pixelateImageEffect.downsample = Mathf.FloorToInt(
+            (playerHealth.maxHealth - playerHealth.currentHealth) / playerHealth.maxHealth * 60
+        );
     }
 
     IEnumerator PlayStory()

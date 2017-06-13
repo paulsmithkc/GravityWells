@@ -24,10 +24,9 @@ GameObject:
   - component: {fileID: 124945726158179070}
   - component: {fileID: 81327464229856372}
   - component: {fileID: 114454100054539340}
-  - component: {fileID: 114751344101291158}
-  - component: {fileID: 114202665865213690}
   - component: {fileID: 114460732262958786}
   - component: {fileID: 114740538353731002}
+  - component: {fileID: 114751344101291158}
   - component: {fileID: 114994770576238792}
   - component: {fileID: 114552334669687314}
   - component: {fileID: 114061048606725900}
@@ -112,34 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbd22b7fbb7e2241b02168570b26ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
   meteorShower: {fileID: 0}
+  textTyping: {fileID: 0}
   camera: {fileID: 20886226977033568}
   cameraFadeEffect: {fileID: 114994770576238792}
   pixelateImageEffect: {fileID: 114751344101291158}
---- !u!114 &114202665865213690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1648213930155928}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  intensity: 0.409
-  chromaticAberration: 0.2
-  axialAberration: 0.5
-  blur: 0
-  blurSpread: 0
-  luminanceDependency: 0.25
-  blurDistance: 2.5
-  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
-  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
-  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
-    type: 3}
 --- !u!114 &114454100054539340
 MonoBehaviour:
   m_ObjectHideFlags: 1

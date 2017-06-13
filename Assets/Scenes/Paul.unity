@@ -317,6 +317,17 @@ MonoBehaviour:
   text: {fileID: 1089735792}
   characterPerSecond: 10
   messageDelay: 2
+--- !u!1 &1309644635 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1980821475454854, guid: 53543fa88f9d19b4996bf60040860ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 450594960}
+--- !u!114 &1309644646 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114996976590600298, guid: 53543fa88f9d19b4996bf60040860ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 450594960}
+  m_Script: {fileID: 11500000, guid: 42e494578f1408540aa47d9335a43e8e, type: 3}
 --- !u!1001 &1332238233
 Prefab:
   m_ObjectHideFlags: 0
@@ -448,14 +459,29 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1309644635}
+    - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1627939089}
     - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1309644646}
+    - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
       propertyPath: meteorShower
       value: 
       objectReference: {fileID: 63259917}
+    - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: textTyping
+      value: 
+      objectReference: {fileID: 1089735795}
     - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
       propertyPath: cameraTarget

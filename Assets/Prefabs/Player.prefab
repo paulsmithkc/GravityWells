@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 54169648145513624}
   - component: {fileID: 114599538734115242}
   - component: {fileID: 114423569390758876}
+  - component: {fileID: 114996976590600298}
   - component: {fileID: 114656293906385776}
   - component: {fileID: 114809553001955064}
   - component: {fileID: 114449224744879582}
@@ -479,7 +480,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980821475454854}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 90, z: 0}
+  m_LocalPosition: {x: 0, y: 88.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4749539764648042}
@@ -1048,6 +1049,12 @@ MonoBehaviour:
   highDecelClip: {fileID: 8300000, guid: 03bf91d88fce91c41995d27de63cc967, type: 3}
   currentMoveVelocity: {x: 0, y: 0, z: 0}
   currentTurnVelocity: 0
+  inputs:
+    allowPlayerControl: 0
+    Horizontal: 0
+    Vertical: 0
+    CameraYaw: 0
+    CameraPitch: 0
 --- !u!114 &114449224744879582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1126,6 +1133,20 @@ MonoBehaviour:
     type: 2}
   fireButton: Fire1
   spreadFactor: 1
+--- !u!114 &114996976590600298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980821475454854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e494578f1408540aa47d9335a43e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 60
+  currentHealth: 60
+  healthPerSecond: 6
 --- !u!135 &135048471790839138
 SphereCollider:
   m_ObjectHideFlags: 1

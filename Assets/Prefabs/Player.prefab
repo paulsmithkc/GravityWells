@@ -1032,8 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 54169648145513624}
-  cameraYawSensitivity: 60
-  forwardSpeed: 10
+  cameraYawSensitivity: 90
+  forwardSpeed: 15
   horizonalSpeed: 5
   backwardSpeed: 5
   jetpackSpeed: 10
@@ -1070,6 +1070,7 @@ MonoBehaviour:
     type: 2}
   fireButton: Fire2
   spreadFactor: 2
+  allowPlayerControl: 1
 --- !u!114 &114599538734115242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1133,6 +1134,7 @@ MonoBehaviour:
     type: 2}
   fireButton: Fire1
   spreadFactor: 1
+  allowPlayerControl: 1
 --- !u!114 &114996976590600298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1146,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 60
   currentHealth: 60
-  healthPerSecond: 6
+  healthPerSecond: 3
 --- !u!135 &135048471790839138
 SphereCollider:
   m_ObjectHideFlags: 1

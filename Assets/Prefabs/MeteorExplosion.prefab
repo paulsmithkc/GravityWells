@@ -153,11 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 10
-  explosionForce: 100
+  explosionForce: 20
   explosionDamage: 0
   explosionDuration: 1
-  explosionSound: {fileID: 0}
-  explosionVolume: 1
 --- !u!212 &212648941418074966
 SpriteRenderer:
   m_ObjectHideFlags: 1

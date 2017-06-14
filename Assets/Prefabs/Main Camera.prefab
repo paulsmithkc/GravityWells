@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
-  speed: 1
-  magnitude: 0.00001
+  speed: 2
+  magnitude: 0.05
   multiplier: 1
 --- !u!114 &114454100054539340
 MonoBehaviour:

@@ -488,7 +488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 5
-  explosionPrefab: {fileID: 114110412231027118, guid: a3dc219fcd533cf4c92cd65d09634a65,
+  debrisPrefab: {fileID: 1924026172059392, guid: d42ba1613416cbb40b30036f9c4b3a61,
+    type: 2}
+  explosionPrefab: {fileID: 1098788913086670, guid: a3dc219fcd533cf4c92cd65d09634a65,
     type: 2}
 --- !u!120 &120842947123038074
 LineRenderer:

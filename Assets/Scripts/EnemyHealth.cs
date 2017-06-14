@@ -7,7 +7,8 @@ public class EnemyHealth : MonoBehaviour {
     public float maxHealth;
     public float currentHealth;
     //public float healthPerSecond;
-    public Explosion explosionPrefab = null;
+    public GameObject debrisPrefab = null;
+    public GameObject explosionPrefab = null;
     private bool exploded = false;
 
     void Start()
@@ -30,7 +31,10 @@ public class EnemyHealth : MonoBehaviour {
         if (!exploded && currentHealth <= 0)
         {
             exploded = true;
-            Debug.Log("BOOM");
+            if (debrisPrefab != null)
+            {
+                GameObject.Instantiate(debrisPrefab, transform.position + transform.up, transform.rotation);
+            }
             if (explosionPrefab != null)
             {
                 GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);

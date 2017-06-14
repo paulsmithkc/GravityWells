@@ -159,7 +159,8 @@ MonoBehaviour:
     type: 2}
   explodeOnImpact: 1
   explosionRadius: 10
-  explosionForce: 100
+  explosionForce: 20
+  explosionDamage: 6
 --- !u!198 &198175398413540878
 ParticleSystem:
   m_ObjectHideFlags: 1

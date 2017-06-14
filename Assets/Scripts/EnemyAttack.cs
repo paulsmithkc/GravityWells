@@ -155,7 +155,7 @@ public class EnemyAttack : MonoBehaviour
     private void UpdateTargetPosition(Vector3 playerPosition)
     {
         // Lag target behind player
-        targetPosition = Vector3.SmoothDamp(targetPosition, playerPosition + targetOffset, ref targettingVelocity, 0.5f, 20, Time.deltaTime);
+        targetPosition = Vector3.SmoothDamp(targetPosition, playerPosition + targetOffset, ref targettingVelocity, 1, 10, Time.deltaTime);
     }
     
     private void UpdateLinePositions(float currentRange)

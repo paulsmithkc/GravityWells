@@ -128,6 +128,15 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator OnPlayerDeath_Coroutine()
     {
+        playerMovement.inputs = new PlayerMovement.Inputs
+        {
+            allowPlayerControl = false
+        };
+        for (var i = 0; i < guns.Length; i++)
+        {
+            guns[i].allowPlayerControl = false;
+        }
+
         yield return StartCoroutine(DisplayMessage("Mission Failed"));
         yield return new WaitForSeconds(3);
         LoadScene(SceneManager.GetActiveScene().name);

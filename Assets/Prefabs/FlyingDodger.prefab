@@ -469,11 +469,12 @@ MonoBehaviour:
   range: 10
   blinkRate: 0.3
   tellLength: 3
-  attackLength: 1
+  attackLength: 3
   damagePerSecond: 6
   cooldown: 5
   tellWidth: 1
   attackWidth: 3
+  pulsingGradient: {fileID: 114173258384317092}
 --- !u!114 &114704212271385580
 MonoBehaviour:
   m_ObjectHideFlags: 1

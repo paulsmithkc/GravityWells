@@ -38,7 +38,7 @@ public class TextTyping : MonoBehaviour {
         });
     }
     
-	void Start() {
+	void Awake() {
         StartCoroutine(TypeCharacters());
     }
 	

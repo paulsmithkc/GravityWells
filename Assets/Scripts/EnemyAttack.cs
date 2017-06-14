@@ -10,8 +10,6 @@ public class EnemyAttack : MonoBehaviour
     public float tellLength = 2.0f;
     public float attackLength = 1.0f;
     public float damagePerSecond = 0.5f;
-    private bool telling = false;
-    private bool attacking = false;
 
     // Attack cooldown
     public float cooldown = 5.0f;
@@ -23,9 +21,11 @@ public class EnemyAttack : MonoBehaviour
     private GameObject player;
     private GameManager mgr;
     private LineRenderer lr;
-    private Vector3 target;
+    private Vector3 targetPosition;
+    private Vector3 targetOffset;
     private Vector3 targettingVelocity = Vector3.zero;
-    public float attackFollowRate = 0.5f;
+    //public float attackFollowRate = 0.5f;
+    public PulsingGradient pulsingGradient;
 
     public enum Phase { IDLE, TELLING, ATTACKING }
     private Phase _phase = Phase.IDLE;
@@ -52,79 +52,130 @@ public class EnemyAttack : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void SetPhase(Phase p)
+    {
+        _phase = p;
+        switch (_phase)
+        {
+            case Phase.TELLING:
+                //DisableMovement();
+                timeleft = tellLength;
+
+                targetPosition = mgr.playerPosition;
+                targetOffset = Random.insideUnitCircle * 2;
+                targettingVelocity = Vector3.zero;
+
+                //StartCoroutine(LineFlash());
+                break;
+
+            case Phase.ATTACKING:
+                timeleft = attackLength;
+                break;
+
+            case Phase.IDLE:
+                EnableMovement();
+                timeleft = cooldown;
+                break;
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         float deltaTime = Time.deltaTime;
-        Vector3 playerPosition = mgr.playerPosition;
+        timeleft -= Time.deltaTime;
 
+        Vector3 playerPosition = mgr.playerPosition;
         float dist = Vector3.Distance(transform.position, playerPosition);
-        if (dist > range)
+        float currentRange = (_phase == Phase.IDLE ? range : range * 2);
+        if (dist > currentRange)
         {
-            if (_phase != Phase.IDLE) timeleft = cooldown;
             lr.enabled = false;
-            _phase = Phase.IDLE;
+            if (_phase != Phase.IDLE)
+            {
+                SetPhase(Phase.IDLE);
+            }
         }
         else
         {
-
             switch (_phase)
             {
                 case Phase.IDLE:
+                    lr.enabled = false;
                     if (timeleft <= 0)
                     {
-                        target = mgr.playerPosition;
-                        _phase = Phase.TELLING;
-
-                        DisableMovement();
-
-                        lr.startWidth = tellWidth;
-                        lr.endWidth = tellWidth;
-
-                        timeleft = tellLength;
-                        StartCoroutine(LineFlash());
+                        SetPhase(Phase.TELLING);
                     }
                     break;
 
                 case Phase.TELLING:
-                    UpdateLine();
+                    UpdateTargetPosition(playerPosition);
+                    UpdateLinePositions(currentRange);
+                    lr.startWidth = tellWidth;
+                    lr.endWidth = tellWidth;
+                    lr.enabled = true;
+
+                    float t = (tellLength - timeleft) / tellLength;
+                    pulsingGradient.EdgeMultiplierFreq = Mathf.Lerp(1, 6, t);
+                    pulsingGradient.EdgeMultiplierMin = Mathf.Lerp(8, 2, t);
+                    pulsingGradient.EdgeMultiplierMax = Mathf.Lerp(10, 4, t);
+                    pulsingGradient.MinColor = new Color(0, t, 0);
+                    pulsingGradient.MaxColor = new Color(t, 1, 0);
+
                     if (timeleft <= 0)
                     {
-                        _phase = Phase.ATTACKING;
-                        timeleft = attackLength;
+                        SetPhase(Phase.ATTACKING);
                     }
                     break;
 
                 case Phase.ATTACKING:
-                    UpdateLine();
+                    UpdateTargetPosition(playerPosition);
+                    UpdateLinePositions(currentRange);
                     lr.startWidth = attackWidth;
                     lr.endWidth = attackWidth;
                     lr.enabled = true;
+                    
+                    pulsingGradient.EdgeMultiplierFreq = 6;
+                    pulsingGradient.EdgeMultiplierMin = 2;
+                    pulsingGradient.EdgeMultiplierMax = 4;
+                    pulsingGradient.MinColor = new Color(0, 1, 0);
+                    pulsingGradient.MaxColor = new Color(1, 1, 0);
+
                     if (timeleft <= 0)
                     {
-                        EnableMovement();
-                        lr.enabled = false;
-                        _phase = Phase.IDLE;
-                        timeleft = cooldown;
+                        SetPhase(Phase.IDLE);
                     }
-                    mgr.DamagePlayer(deltaTime * damagePerSecond);
                     break;
 
             }
         }
-
-        timeleft -= Time.deltaTime;
     }
 
-
-    private void UpdateLine()
+    private void UpdateTargetPosition(Vector3 playerPosition)
     {
         // Lag target behind player
-        target = Vector3.SmoothDamp(target, mgr.player.transform.position, ref targettingVelocity, attackFollowRate);
-        lr.SetPositions(new Vector3[] {
-            transform.position,
-            target
-        });
+        targetPosition = Vector3.SmoothDamp(targetPosition, playerPosition + targetOffset, ref targettingVelocity, 0.5f, 20, Time.deltaTime);
+    }
+    
+    private void UpdateLinePositions(float currentRange)
+    {
+        Vector3 enemyPos = transform.position;
+        Vector3 dir = (targetPosition - enemyPos).normalized;
+        int layerMask = (1 << LayerMask.NameToLayer("Planet")) | (1 << LayerMask.NameToLayer("Player"));
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, dir, out hit, currentRange, layerMask, QueryTriggerInteraction.Ignore))
+        {
+            lr.SetPositions(new Vector3[] { enemyPos, hit.point });
+            if (string.Equals(hit.collider.tag, "Player"))
+            {
+                mgr.DamagePlayer(Time.deltaTime * damagePerSecond);
+            }
+        }
+        else
+        {
+            lr.SetPositions(new Vector3[] { enemyPos, enemyPos + dir * currentRange });
+        }
     }
 
     private void DisableMovement()
@@ -143,14 +194,14 @@ public class EnemyAttack : MonoBehaviour
         rb.useGravity = true;
     }
 
-    IEnumerator LineFlash()
-    {
-        while (_phase == Phase.TELLING)
-        {
-            float t = (timeleft / tellLength) / 2.0f;
-            lr.enabled = !lr.enabled;
-            yield return new WaitForSeconds(t);
-        }
-    }
+    //IEnumerator LineFlash()
+    //{
+    //    while (_phase == Phase.TELLING)
+    //    {
+    //        float t = (timeleft / tellLength) / 2.0f;
+    //        lr.enabled = !lr.enabled;
+    //        yield return new WaitForSeconds(t);
+    //    }
+    //}
 
 }

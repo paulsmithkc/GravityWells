@@ -1149,6 +1149,10 @@ MonoBehaviour:
   maxHealth: 60
   currentHealth: 60
   healthPerSecond: 3
+  debrisPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 1758489972347230, guid: 57aa9c070f733a745b035af429d8e5d2,
+    type: 2}
+  exploded: 0
 --- !u!135 &135048471790839138
 SphereCollider:
   m_ObjectHideFlags: 1

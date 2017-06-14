@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -115,6 +116,38 @@ public class GameManager : MonoBehaviour {
         while (!messageDisplayed)
         {
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public void OnPlayerDeath(PlayerHealth p)
+    {
+        StopAllCoroutines();
+        textTyping.Clear();
+        StartCoroutine(OnPlayerDeath_Coroutine());
+    }
+
+    IEnumerator OnPlayerDeath_Coroutine()
+    {
+        yield return StartCoroutine(DisplayMessage("Mission Failed"));
+        yield return new WaitForSeconds(3);
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogErrorFormat("LoadScene({0}): scene name not specified", sceneName);
+        }
+        else if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            Debug.LogErrorFormat("LoadScene({0}): scene {0} not found", sceneName);
+        }
+        else
+        {
+            Debug.LogFormat("LoadScene({0})", sceneName);
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

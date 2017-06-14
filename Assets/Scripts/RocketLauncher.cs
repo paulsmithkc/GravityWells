@@ -7,10 +7,11 @@ public class RocketLauncher : MonoBehaviour {
     public Rocket rocketPrefab;
     public string fireButton = "Fire1";
     public float spreadFactor = 1;
+    public bool allowPlayerControl = true;
     
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown(fireButton)) {
+		if (allowPlayerControl && Input.GetButtonDown(fireButton)) {
             var r = Random.insideUnitCircle * spreadFactor;
             GameObject.Instantiate(
                 rocketPrefab,

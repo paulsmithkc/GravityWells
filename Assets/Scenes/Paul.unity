@@ -303,7 +303,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4579004365358096, guid: a3dc219fcd533cf4c92cd65d09634a65, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3dc219fcd533cf4c92cd65d09634a65, type: 2}
@@ -453,6 +453,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 1785926381}
     - target: {fileID: 114061048606725900, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
       propertyPath: player
@@ -478,11 +483,16 @@ Prefab:
       propertyPath: textTyping
       value: 
       objectReference: {fileID: 1089735795}
-    - target: {fileID: 114454100054539340, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+    - target: {fileID: 114250655795327122, guid: f056f9a0b79d49e4c9bfc622337b97c0,
         type: 2}
-      propertyPath: cameraTarget
-      value: 
-      objectReference: {fileID: 1785926381}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114250655795327122, guid: f056f9a0b79d49e4c9bfc622337b97c0,
+        type: 2}
+      propertyPath: magnitude
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f056f9a0b79d49e4c9bfc622337b97c0, type: 2}
   m_IsPrefabParent: 0

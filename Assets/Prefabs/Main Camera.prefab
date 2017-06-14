@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114994770576238792}
   - component: {fileID: 114552334669687314}
   - component: {fileID: 114061048606725900}
+  - component: {fileID: 114250655795327122}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -119,6 +120,20 @@ MonoBehaviour:
   camera: {fileID: 20886226977033568}
   cameraFadeEffect: {fileID: 114994770576238792}
   pixelateImageEffect: {fileID: 114751344101291158}
+--- !u!114 &114250655795327122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648213930155928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c4a1405b3623c499440a59072f8ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  speed: 1
+  magnitude: 1
 --- !u!114 &114454100054539340
 MonoBehaviour:
   m_ObjectHideFlags: 1

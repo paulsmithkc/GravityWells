@@ -25,5 +25,6 @@ public class PlayerHealth : MonoBehaviour {
     public void DamagePlayer(float damage)
     {
         currentHealth -= damage;
+        Camera.main.SendMessage("Shake");
     }
 }

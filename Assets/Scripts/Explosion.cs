@@ -63,10 +63,13 @@ public class Explosion : MonoBehaviour {
         var objects = Physics.OverlapSphere(pos, explosionRadius, planetMask, QueryTriggerInteraction.Ignore);
         foreach (var o in objects)
         {
-            Rigidbody rb = o.GetComponent<Rigidbody>();
-            if (rb)
+            if (!string.Equals(o.tag, "Player"))
             {
-                rb.AddExplosionForce(explosionForce, pos, explosionRadius, 0, ForceMode.Force);
+                Rigidbody rb = o.GetComponent<Rigidbody>();
+                if (rb)
+                {
+                    rb.AddExplosionForce(explosionForce, pos, explosionRadius, 0, ForceMode.Force);
+                }
             }
         }
 

@@ -112,11 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbd22b7fbb7e2241b02168570b26ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialEnemyCount: 200
   player: {fileID: 0}
   playerMovement: {fileID: 0}
   playerHealth: {fileID: 0}
   meteorShower: {fileID: 0}
   textTyping: {fileID: 0}
+  guns: []
   camera: {fileID: 20886226977033568}
   cameraFadeEffect: {fileID: 114994770576238792}
   pixelateImageEffect: {fileID: 114751344101291158}

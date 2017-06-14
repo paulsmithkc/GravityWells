@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public int initialEnemyCount = 200;
     public GameObject player;
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
@@ -87,6 +88,23 @@ public class GameManager : MonoBehaviour {
         for (var i = 0; i < guns.Length; i++)
         {
             guns[i].allowPlayerControl = true;
+        }
+
+        yield return StartCoroutine(
+            DisplayMessage("ENEMY PRESENCE AT 100%", true)
+        );
+        float percentEnemies = 100.0f;
+        for (int i = 9; i >= 0; --i)
+        {
+            while (percentEnemies > 10.0f * i)
+            {
+                yield return new WaitForSeconds(1);
+                var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                percentEnemies = Mathf.Clamp(100.0f * enemies.Length / initialEnemyCount, 0.0f, 100.0f);
+            }
+            yield return StartCoroutine(
+                DisplayMessage(string.Format("ENEMY PRESENCE AT {0}%", 10 * i), true)
+            );
         }
     }
 

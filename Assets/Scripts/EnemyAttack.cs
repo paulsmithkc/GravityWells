@@ -88,7 +88,7 @@ public class EnemyAttack : MonoBehaviour
 
         Vector3 playerPosition = mgr.playerPosition;
         float dist = Vector3.Distance(transform.position, playerPosition);
-        float currentRange = (_phase == Phase.IDLE ? range : range * 2);
+        float currentRange = range; //(_phase == Phase.IDLE ? range : range * 2);
         if (dist > currentRange)
         {
             lr.enabled = false;
@@ -155,7 +155,8 @@ public class EnemyAttack : MonoBehaviour
     private void UpdateTargetPosition(Vector3 playerPosition)
     {
         // Lag target behind player
-        targetPosition = Vector3.SmoothDamp(targetPosition, playerPosition + targetOffset, ref targettingVelocity, 1, 10, Time.deltaTime);
+        float smoothTime = (_phase == Phase.ATTACKING ? 1.0f : 0.2f);
+        targetPosition = Vector3.SmoothDamp(targetPosition, playerPosition + targetOffset, ref targettingVelocity, smoothTime, 10, Time.deltaTime);
     }
     
     private void UpdateLinePositions(float currentRange)

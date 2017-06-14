@@ -59,10 +59,13 @@ public class Rocket : MonoBehaviour {
         if (exploded) { return; }
         exploded = true;
 
-        Explosion exp = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
-        exp.explosionRadius = this.explosionRadius;
-        exp.explosionForce = this.explosionForce;
-        exp.explosionDamage = this.explosionDamage;
+        if (explosionPrefab != null)
+        {
+            Explosion exp = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
+            exp.explosionRadius = this.explosionRadius;
+            exp.explosionForce = this.explosionForce;
+            exp.explosionDamage = this.explosionDamage;
+        }
 
         StopAllCoroutines();
         GameObject.Destroy(this.gameObject);

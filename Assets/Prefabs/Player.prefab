@@ -1035,7 +1035,7 @@ MonoBehaviour:
   cameraYawSensitivity: 90
   forwardSpeed: 15
   horizonalSpeed: 5
-  backwardSpeed: 5
+  backwardSpeed: 7
   jetpackSpeed: 10
   engineAccelTime: 0.5
   engineVolume: 0.5

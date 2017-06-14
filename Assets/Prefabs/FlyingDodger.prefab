@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   blinkRate: 0.3
-  tellLength: 3
+  tellLength: 1
   attackLength: 3
   damagePerSecond: 6
   cooldown: 5

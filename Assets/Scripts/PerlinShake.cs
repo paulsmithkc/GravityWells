@@ -11,15 +11,15 @@ public class PerlinShake : MonoBehaviour
 
     private bool isShaking = false;
 
-    public void DoShake()
+    public void Shake()
     {
         if (!isShaking)
         {
-            StartCoroutine(Shake());
+            StartCoroutine(DoShake());
         }
     }
 
-    public IEnumerator Shake()
+    private IEnumerator DoShake()
     {
         isShaking = true;
         float elapsed = 0.0f;

@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.5
   speed: 1
-  magnitude: 1
+  magnitude: 0.00001
+  multiplier: 1
 --- !u!114 &114454100054539340
 MonoBehaviour:
   m_ObjectHideFlags: 1

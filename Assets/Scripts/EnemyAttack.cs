@@ -62,7 +62,7 @@ public class EnemyAttack : MonoBehaviour
                 timeleft = tellLength;
 
                 targetPosition = mgr.playerPosition;
-                targetOffset = Random.insideUnitCircle * 2;
+                targetOffset = Random.insideUnitCircle * 1;
                 targettingVelocity = Vector3.zero;
 
                 //StartCoroutine(LineFlash());

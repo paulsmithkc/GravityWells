@@ -39,7 +39,6 @@ public class PerlinShake : MonoBehaviour
 
             float x = Mathf.PerlinNoise(alpha, 0.0f) * 2.0f - 1.0f;
             float y = Mathf.PerlinNoise(0.0f, alpha) * 2.0f - 1.0f;
-            Debug.Log(x + "," + y);
 
             x *= magnitude * damper;
             y *= magnitude * damper;

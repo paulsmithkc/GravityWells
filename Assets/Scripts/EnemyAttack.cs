@@ -24,6 +24,8 @@ public class EnemyAttack : MonoBehaviour
     private GameManager mgr;
     private LineRenderer lr;
     private Vector3 target;
+    private Vector3 targettingVelocity = Vector3.zero;
+    public float attackFollowRate = 0.5f;
 
     public enum Phase { IDLE, TELLING, ATTACKING }
     private Phase _phase = Phase.IDLE;
@@ -73,7 +75,6 @@ public class EnemyAttack : MonoBehaviour
                     {
                         target = mgr.playerPosition;
                         _phase = Phase.TELLING;
-                        UpdateLine();
 
                         DisableMovement();
 
@@ -86,6 +87,7 @@ public class EnemyAttack : MonoBehaviour
                     break;
 
                 case Phase.TELLING:
+                    UpdateLine();
                     if (timeleft <= 0)
                     {
                         _phase = Phase.ATTACKING;
@@ -94,7 +96,7 @@ public class EnemyAttack : MonoBehaviour
                     break;
 
                 case Phase.ATTACKING:
-                    // Update line renderer target
+                    UpdateLine();
                     lr.startWidth = attackWidth;
                     lr.endWidth = attackWidth;
                     lr.enabled = true;
@@ -117,6 +119,8 @@ public class EnemyAttack : MonoBehaviour
 
     private void UpdateLine()
     {
+        // Lag target behind player
+        target = Vector3.SmoothDamp(target, mgr.player.transform.position, ref targettingVelocity, attackFollowRate);
         lr.SetPositions(new Vector3[] {
             transform.position,
             target
@@ -144,7 +148,6 @@ public class EnemyAttack : MonoBehaviour
         while (_phase == Phase.TELLING)
         {
             float t = (timeleft / tellLength) / 2.0f;
-            //Debug.Log(t);
             lr.enabled = !lr.enabled;
             yield return new WaitForSeconds(t);
         }

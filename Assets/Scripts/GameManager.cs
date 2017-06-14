@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public PlayerHealth playerHealth;
     public MeteorShower meteorShower;
     public TextTyping textTyping;
+    public RocketLauncher[] guns;
 
     public new Camera camera;
     public FadeImageEffect cameraFadeEffect;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
         playerHealth = player.GetComponent<PlayerHealth>();
         meteorShower = GameObject.FindObjectOfType<MeteorShower>();
         textTyping = GameObject.FindObjectOfType<TextTyping>();
+        guns = player.GetComponents<RocketLauncher>();
 
         camera = Camera.main;
         cameraFadeEffect = camera.GetComponent<FadeImageEffect>();
@@ -59,6 +61,10 @@ public class GameManager : MonoBehaviour {
         {
             allowPlayerControl = false
         };
+        for (var i = 0; i < guns.Length; i++)
+        {
+            guns[i].allowPlayerControl = false;
+        }
 
         // Fade in from black
         yield return StartCoroutine(DisplayMessage("Activating visual array"));
@@ -78,6 +84,10 @@ public class GameManager : MonoBehaviour {
         {
             allowPlayerControl = true
         };
+        for (var i = 0; i < guns.Length; i++)
+        {
+            guns[i].allowPlayerControl = true;
+        }
     }
 
     IEnumerator DisplayMessage(string message, bool keepOnScreen = false)
